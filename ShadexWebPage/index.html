@@ -1267,6 +1267,83 @@
     .demo-card .tag { font-family: var(--font-ui); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--klein-glow); }
     .demo-card h4 { font-family: var(--font-ui); font-weight: 600; font-size: 1.08rem; margin: 0.5rem 0 0.4rem; }
     .demo-card p { opacity: 0.72; font-size: 0.92rem; line-height: 1.5; }
+
+    /* ===== FASE 3 · HERRAMIENTAS INTERACTIVAS ===== */
+    .lab-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.6rem; margin-top: 3rem; }
+    .lab-card {
+      border: 1px solid rgba(255,255,255,0.08); border-radius: var(--border-radius-lg);
+      background: rgba(255,255,255,0.03); overflow: hidden; display: flex; flex-direction: column;
+    }
+    .lab-head { padding: 1.3rem 1.5rem 0; }
+    .lab-head .tag { font-family: var(--font-ui); font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--klein-glow); }
+    .lab-head h3 { font-family: var(--font-ui); font-weight: 600; font-size: 1.15rem; margin-top: 0.4rem; }
+    .lab-stage {
+      position: relative; margin: 1.2rem 1.5rem 0; border-radius: var(--border-radius-md);
+      overflow: hidden; aspect-ratio: 16/10; background: #0a0c14;
+    }
+    .lab-stage video, .lab-stage .scene { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    /* SmartFilm frost */
+    .sf-frost {
+      position: absolute; inset: 0; background: rgba(228,233,245,0.62);
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      transition: opacity 0.6s ease; opacity: 1;
+      display: grid; place-items: center;
+    }
+    .lab-stage.is-on .sf-frost { opacity: 0; }
+    .sf-frost span { font-family: var(--font-ui); font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; font-size: 0.8rem; color: #2a3350; }
+    /* Solar tint */
+    .solar-tint { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255,170,40,0.0), rgba(255,120,30,0.0)); transition: background 0.6s ease, box-shadow 0.6s ease; }
+    .lab-stage.solar-off .solar-tint { background: linear-gradient(180deg, rgba(255,180,60,0.42), rgba(255,110,30,0.34)); box-shadow: inset 0 0 120px rgba(255,120,20,0.5); }
+    /* Antes/Después */
+    .ba-after { position: absolute; inset: 0; clip-path: inset(0 50% 0 0); }
+    .ba-after .scene { filter: saturate(1.08) brightness(1.05); }
+    .ba-before .scene { filter: grayscale(0.4) brightness(0.78) contrast(0.95); }
+    .ba-divider { position: absolute; top: 0; bottom: 0; left: 50%; width: 2px; background: rgba(255,255,255,0.9); transform: translateX(-1px); pointer-events: none; box-shadow: 0 0 12px rgba(0,0,0,0.4); }
+    .ba-label { position: absolute; top: 10px; font-family: var(--font-ui); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; background: rgba(5,6,8,0.6); padding: 0.25rem 0.6rem; border-radius: var(--border-radius-full); }
+    .ba-label.l { left: 10px; } .ba-label.r { right: 10px; }
+    .lab-controls { padding: 1.1rem 1.5rem 1.5rem; }
+    .lab-toggle {
+      width: 100%; border: none; cursor: pointer; border-radius: var(--border-radius-full);
+      padding: 0.8rem 1rem; font-family: var(--font-ui); font-weight: 600; font-size: 0.95rem;
+      background: var(--klein); color: #fff; transition: background 0.2s, transform 0.1s;
+    }
+    .lab-toggle:hover { background: var(--klein-glow); }
+    .lab-toggle:active { transform: scale(0.98); }
+    .lab-state { text-align: center; font-family: var(--font-ui); font-size: 0.85rem; opacity: 0.7; margin-top: 0.7rem; }
+    .ba-range { width: 100%; margin-top: 0.6rem; accent-color: var(--klein); }
+
+    /* Explorador de texturas */
+    .tex-stage { aspect-ratio: 16/9; }
+    .tex-preview { position: absolute; inset: 0; transition: background 0.5s ease, filter 0.5s ease; }
+    .tex-swatches { display: flex; flex-wrap: wrap; gap: 0.6rem; padding: 1.1rem 1.5rem 1.5rem; }
+    .tex-sw {
+      width: 42px; height: 42px; border-radius: 8px; cursor: pointer; border: 2px solid transparent;
+      transition: border-color 0.2s, transform 0.1s; background-size: cover;
+    }
+    .tex-sw:hover { transform: scale(1.06); }
+    .tex-sw.active { border-color: var(--klein-glow); }
+    .tex-name { padding: 0 1.5rem 1.3rem; font-family: var(--font-ui); font-size: 0.9rem; opacity: 0.75; }
+    .tex-name b { color: var(--color-black); font-weight: 600; }
+
+    /* Configurador */
+    .config-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 3rem; }
+    @media (max-width: 760px) { .config-wrap { grid-template-columns: 1fr; } }
+    .config-panel { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: var(--border-radius-lg); padding: 1.8rem; }
+    .config-panel label { display: block; font-family: var(--font-ui); font-weight: 600; font-size: 0.85rem; margin: 1.1rem 0 0.5rem; opacity: 0.85; }
+    .config-panel label:first-of-type { margin-top: 0; }
+    .config-panel select {
+      width: 100%; padding: 0.8rem 1rem; border-radius: var(--border-radius-md);
+      background: rgba(255,255,255,0.06); color: var(--color-black);
+      border: 1px solid var(--color-border); font-family: var(--font-ui); font-size: 0.95rem;
+    }
+    .config-panel select option { background: #0a0c14; color: #f7f2ed; }
+    .config-result { display: flex; flex-direction: column; justify-content: center; }
+    .config-result .rec-tag { font-family: var(--font-ui); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--klein-glow); }
+    .config-result h3 { font-family: var(--font-heading); font-size: clamp(1.6rem, 4vw, 2.3rem); margin: 0.5rem 0 0.8rem; line-height: 1.1; }
+    .config-result .rec-desc { opacity: 0.8; line-height: 1.6; font-size: 1rem; }
+    .config-result .rec-est { margin-top: 1.2rem; font-family: var(--font-ui); font-weight: 600; color: var(--klein-glow); font-size: 1.05rem; }
+    .config-result .rec-note { font-size: 0.8rem; opacity: 0.55; margin-top: 0.3rem; }
+    .config-result .whatsapp-cta { margin-top: 1.5rem; align-self: flex-start; }
   </style>
 </head>
 <body>
@@ -1609,13 +1686,100 @@
     <div class="center narrow">
       <div class="eyebrow" data-es="Experiencia Digital" data-en="Digital Experience">Experiencia Digital</div>
       <h2 class="sec-title" data-es="Algunas tecnologías deben explicarse. Otras deben <span class='accent'>experimentarse</span>." data-en="Some technologies must be explained. Others must be <span class='accent'>experienced</span>.">Algunas tecnologías deben explicarse. Otras deben <span class="accent">experimentarse</span>.</h2>
-      <p class="sec-text muted" style="margin-left:auto;margin-right:auto;" data-es="Próximamente: demostraciones interactivas para explorar cada tecnología en vivo." data-en="Coming soon: interactive demos to explore each technology live.">Próximamente: demostraciones interactivas para explorar cada tecnología en vivo.</p>
+      <p class="sec-text muted" style="margin-left:auto;margin-right:auto;" data-es="Demostraciones interactivas para explorar cada tecnología en vivo." data-en="Interactive demos to explore each technology live.">Demostraciones interactivas para explorar cada tecnología en vivo.</p>
     </div>
-    <div class="demo-grid">
-      <div class="demo-card"><span class="tag" data-es="Demo" data-en="Demo">Demo</span><h4>SmartFilm ON / OFF</h4><p data-es="Privacidad instantánea en tiempo real." data-en="Instant privacy in real time.">Privacidad instantánea en tiempo real.</p></div>
-      <div class="demo-card"><span class="tag" data-es="Demo" data-en="Demo">Demo</span><h4 data-es="Control Solar Inteligente" data-en="Smart Solar Control">Control Solar Inteligente</h4><p data-es="Comparativa entre cristal convencional y nanotecnología cerámica." data-en="A comparison between conventional glass and ceramic nanotechnology.">Comparativa entre cristal convencional y nanotecnología cerámica.</p></div>
-      <div class="demo-card"><span class="tag" data-es="Demo" data-en="Demo">Demo</span><h4 data-es="Antes y Después" data-en="Before & After">Antes y Después</h4><p data-es="Transformaciones reales, lado a lado." data-en="Real transformations, side by side.">Transformaciones reales, lado a lado.</p></div>
-      <div class="demo-card"><span class="tag" data-es="Demo" data-en="Demo">Demo</span><h4 data-es="Explorador de Texturas" data-en="Texture Explorer">Explorador de Texturas</h4><p data-es="Acabados, gradientes, esmerilados y diseños personalizados." data-en="Finishes, gradients, frosted and custom designs.">Acabados, gradientes, esmerilados y diseños personalizados.</p></div>
+    <div class="lab-grid">
+
+      <!-- SmartFilm ON/OFF -->
+      <div class="lab-card">
+        <div class="lab-head"><span class="tag" data-es="Demo en vivo" data-en="Live demo">Demo en vivo</span><h3>SmartFilm ON / OFF</h3></div>
+        <div class="lab-stage is-on" id="sfStage">
+          <video id="labVideoSF" muted loop playsinline preload="none" poster="poster.jpg"></video>
+          <div class="sf-frost"><span data-es="Privacidad activada" data-en="Privacy on">Privacidad activada</span></div>
+        </div>
+        <div class="lab-controls">
+          <button class="lab-toggle" type="button" data-target="sfStage" data-mode="sf" data-es="Activar privacidad" data-en="Activate privacy">Activar privacidad</button>
+          <div class="lab-state" id="sfState" data-es="Estado: transparente" data-en="State: transparent">Estado: transparente</div>
+        </div>
+      </div>
+
+      <!-- Control Solar -->
+      <div class="lab-card">
+        <div class="lab-head"><span class="tag" data-es="Demo en vivo" data-en="Live demo">Demo en vivo</span><h3 data-es="Control Solar Inteligente" data-en="Smart Solar Control">Control Solar Inteligente</h3></div>
+        <div class="lab-stage solar-off" id="solarStage">
+          <video id="labVideoSolar" muted loop playsinline preload="none" poster="poster.jpg"></video>
+          <div class="solar-tint"></div>
+        </div>
+        <div class="lab-controls">
+          <button class="lab-toggle" type="button" data-target="solarStage" data-mode="solar" data-es="Aplicar nanocerámica" data-en="Apply nanoceramic">Aplicar nanocerámica</button>
+          <div class="lab-state" id="solarState" data-es="Cristal convencional · calor y deslumbramiento" data-en="Conventional glass · heat and glare">Cristal convencional · calor y deslumbramiento</div>
+        </div>
+      </div>
+
+      <!-- Antes / Después -->
+      <div class="lab-card">
+        <div class="lab-head"><span class="tag" data-es="Comparativa" data-en="Comparison">Comparativa</span><h3 data-es="Antes y Después" data-en="Before & After">Antes y Después</h3></div>
+        <div class="lab-stage" id="baStage">
+          <div class="ba-before"><img class="scene" src="poster.jpg" alt="Antes"></div>
+          <div class="ba-after" id="baAfter"><img class="scene" src="poster.jpg" alt="Después"></div>
+          <div class="ba-divider" id="baDivider"></div>
+          <span class="ba-label l" data-es="Antes" data-en="Before">Antes</span>
+          <span class="ba-label r" data-es="Después" data-en="After">Después</span>
+        </div>
+        <div class="lab-controls">
+          <input class="ba-range" id="baRange" type="range" min="0" max="100" value="50" aria-label="Antes y Después">
+          <div class="lab-state" data-es="Desliza para comparar" data-en="Slide to compare">Desliza para comparar</div>
+        </div>
+      </div>
+
+      <!-- Explorador de texturas -->
+      <div class="lab-card">
+        <div class="lab-head"><span class="tag" data-es="Explorador" data-en="Explorer">Explorador</span><h3 data-es="Explorador de Texturas" data-en="Texture Explorer">Explorador de Texturas</h3></div>
+        <div class="lab-stage tex-stage"><div class="tex-preview" id="texPreview"></div></div>
+        <div class="tex-name" id="texName"><b>Crystal White</b> — <span data-es="privacidad translúcida" data-en="translucent privacy">privacidad translúcida</span></div>
+        <div class="tex-swatches" id="texSwatches"></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== CONFIGURADOR ===== -->
+<section class="pad azul-section" id="configurador">
+  <div class="container">
+    <div class="center narrow">
+      <div class="eyebrow" data-es="Diseñe su Transformación" data-en="Design Your Transformation">Diseñe su Transformación</div>
+      <h2 class="sec-title" data-es="Cuéntanos qué buscas y te recomendamos la <span class='accent-text'>tecnología ideal</span>" data-en="Tell us what you need and we'll recommend the <span class='accent-text'>ideal technology</span>">Cuéntanos qué buscas y te recomendamos la <span class="accent-text">tecnología ideal</span></h2>
+    </div>
+    <div class="config-wrap">
+      <div class="config-panel">
+        <label for="cfgSector" data-es="¿Qué tipo de espacio?" data-en="What type of space?">¿Qué tipo de espacio?</label>
+        <select id="cfgSector">
+          <option value="residencial" data-es="Residencial" data-en="Residential">Residencial</option>
+          <option value="corporativo" data-es="Corporativo / Oficinas" data-en="Corporate / Offices">Corporativo / Oficinas</option>
+          <option value="comercial" data-es="Comercial / Retail" data-en="Commercial / Retail">Comercial / Retail</option>
+          <option value="hotel" data-es="Hotelería / Restaurantes" data-en="Hospitality / Restaurants">Hotelería / Restaurantes</option>
+          <option value="automotriz" data-es="Automotriz" data-en="Automotive">Automotriz</option>
+          <option value="salud" data-es="Salud / Corporativo sensible" data-en="Healthcare / Sensitive">Salud / Corporativo sensible</option>
+        </select>
+        <label for="cfgObjetivo" data-es="¿Cuál es tu objetivo principal?" data-en="What is your main goal?">¿Cuál es tu objetivo principal?</label>
+        <select id="cfgObjetivo">
+          <option value="privacidad" data-es="Privacidad bajo demanda" data-en="On-demand privacy">Privacidad bajo demanda</option>
+          <option value="solar" data-es="Control solar y confort térmico" data-en="Solar control & thermal comfort">Control solar y confort térmico</option>
+          <option value="seguridad" data-es="Seguridad y protección" data-en="Safety & protection">Seguridad y protección</option>
+          <option value="comunicacion" data-es="Comunicación visual / medios" data-en="Visual communication / media">Comunicación visual / medios</option>
+          <option value="estetica" data-es="Estética y diseño" data-en="Aesthetics & design">Estética y diseño</option>
+          <option value="antiespionaje" data-es="Confidencialidad / anti-espionaje" data-en="Confidentiality / anti-spy">Confidencialidad / anti-espionaje</option>
+        </select>
+      </div>
+      <div class="config-result">
+        <span class="rec-tag" data-es="Recomendación" data-en="Recommendation">Recomendación</span>
+        <h3 id="cfgRecName">SmartFilm Crystal White</h3>
+        <p class="rec-desc" id="cfgRecDesc"></p>
+        <div class="rec-est" id="cfgRecEst"></div>
+        <div class="rec-note" data-es="Estimación orientativa. El precio final depende de medidas, tipo de cristal e instalación." data-en="Indicative estimate. Final pricing depends on measurements, glass type and installation.">Estimación orientativa. El precio final depende de medidas, tipo de cristal e instalación.</div>
+        <a class="whatsapp-cta" id="cfgWhatsapp" href="#" target="_blank" rel="noopener" data-es="Solicitar esta solución →" data-en="Request this solution →">Solicitar esta solución →</a>
+      </div>
     </div>
   </div>
 </section>
@@ -1836,6 +2000,141 @@
         portfolioVideo.dataset.src = VIDEO_DIR + portfolioVideos[i - 1];
         lazyVideoObserver.observe(portfolioVideo);
       }
+    }
+
+    // Escenas de los demos interactivos (videos reales, carga al verse)
+    const labScenes = getRandomVideos(2);
+    [['labVideoSF', labScenes[0]], ['labVideoSolar', labScenes[1]]].forEach(([id, file]) => {
+      const v = document.getElementById(id);
+      if (v) { v.dataset.src = VIDEO_DIR + file; lazyVideoObserver.observe(v); }
+    });
+  })();
+</script>
+
+<!-- ===== FASE 3 · HERRAMIENTAS INTERACTIVAS ===== -->
+<script>
+  (function() {
+    const L = () => document.documentElement.lang === 'en' ? 'en' : 'es';
+
+    // --- SmartFilm ON/OFF + Control Solar (toggles) ---
+    document.querySelectorAll('.lab-toggle[data-target]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const stage = document.getElementById(btn.dataset.target);
+        if (!stage) return;
+        const vid = stage.querySelector('video');
+        if (vid && !vid.src && vid.dataset.src) { vid.src = vid.dataset.src; vid.load(); }
+        if (vid) vid.play().catch(() => {});
+        if (btn.dataset.mode === 'sf') {
+          const on = stage.classList.toggle('is-on');
+          const st = document.getElementById('sfState');
+          btn.setAttribute('data-es', on ? 'Activar privacidad' : 'Quitar privacidad');
+          btn.setAttribute('data-en', on ? 'Activate privacy' : 'Remove privacy');
+          if (st) {
+            st.setAttribute('data-es', on ? 'Estado: transparente' : 'Estado: privacidad activada');
+            st.setAttribute('data-en', on ? 'State: transparent' : 'State: privacy on');
+          }
+        } else if (btn.dataset.mode === 'solar') {
+          const off = stage.classList.toggle('solar-off');
+          const st = document.getElementById('solarState');
+          btn.setAttribute('data-es', off ? 'Aplicar nanocerámica' : 'Quitar nanocerámica');
+          btn.setAttribute('data-en', off ? 'Apply nanoceramic' : 'Remove nanoceramic');
+          if (st) {
+            st.setAttribute('data-es', off ? 'Cristal convencional · calor y deslumbramiento' : 'Nanocerámica · confort y rechazo de calor');
+            st.setAttribute('data-en', off ? 'Conventional glass · heat and glare' : 'Nanoceramic · comfort and heat rejection');
+          }
+        }
+        btn.textContent = btn.getAttribute('data-' + L());
+        const st2 = btn.parentElement.querySelector('.lab-state');
+        if (st2) st2.textContent = st2.getAttribute('data-' + L());
+      });
+    });
+
+    // --- Antes / Después ---
+    const baRange = document.getElementById('baRange');
+    const baAfter = document.getElementById('baAfter');
+    const baDivider = document.getElementById('baDivider');
+    if (baRange && baAfter) {
+      const upd = () => {
+        const v = baRange.value;
+        baAfter.style.clipPath = 'inset(0 ' + (100 - v) + '% 0 0)';
+        if (baDivider) baDivider.style.left = v + '%';
+      };
+      baRange.addEventListener('input', upd); upd();
+    }
+
+    // --- Explorador de texturas ---
+    const textures = [
+      { name: 'Crystal White', es: 'privacidad translúcida', en: 'translucent privacy', css: 'linear-gradient(135deg,#f4f6fb,#dfe5f2)' },
+      { name: 'Crystal Black', es: 'privacidad de alto contraste', en: 'high-contrast privacy', css: 'linear-gradient(135deg,#1a1c22,#0a0b0f)' },
+      { name: 'Crystal Blue', es: 'azul dinámico', en: 'dynamic blue', css: 'linear-gradient(135deg,#1f3cff,#0a1a8c)' },
+      { name: 'Esmerilado', es: 'translucidez elegante', en: 'elegant translucency', css: 'linear-gradient(135deg,#e9edf2,#c7cfd9)' },
+      { name: 'Mármol', es: 'piedra natural', en: 'natural stone', css: 'linear-gradient(135deg,#efeae3,#cdbfa9 60%,#efeae3)' },
+      { name: 'Aluminio', es: 'metal cepillado', en: 'brushed metal', css: 'repeating-linear-gradient(90deg,#c9ccd1,#e8eaee 2px,#b8bcc2 4px)' },
+      { name: 'Dichroic', es: 'efecto cromático', en: 'chromatic effect', css: 'linear-gradient(120deg,#3affd0,#1f6bff 40%,#a23cff 70%,#ff7ad9)' },
+      { name: 'StoneGuard', es: 'protección invisible', en: 'invisible protection', css: 'linear-gradient(135deg,#1b1e26,#2b3140)' }
+    ];
+    const swWrap = document.getElementById('texSwatches');
+    const preview = document.getElementById('texPreview');
+    const texName = document.getElementById('texName');
+    if (swWrap && preview) {
+      textures.forEach((t, i) => {
+        const sw = document.createElement('div');
+        sw.className = 'tex-sw' + (i === 0 ? ' active' : '');
+        sw.style.background = t.css;
+        sw.title = t.name;
+        sw.addEventListener('click', () => {
+          preview.style.background = t.css;
+          swWrap.querySelectorAll('.tex-sw').forEach(s => s.classList.remove('active'));
+          sw.classList.add('active');
+          texName.innerHTML = '<b>' + t.name + '</b> — <span data-es="' + t.es + '" data-en="' + t.en + '">' + t[L()] + '</span>';
+        });
+        swWrap.appendChild(sw);
+      });
+      preview.style.background = textures[0].css;
+    }
+
+    // --- Configurador "Diseñe su Transformación" ---
+    const recommendations = {
+      privacidad:    { name: 'SmartFilm Crystal', es: 'Privacidad instantánea bajo demanda: el cristal pasa de transparente a opaco con un interruptor. Ideal para salas, consultorios y oficinas.', en: 'Instant on-demand privacy: glass switches from clear to opaque at the flip of a switch. Ideal for meeting rooms, clinics and offices.', est: [4500, 7500] },
+      solar:         { name: 'Nanotecnología Cerámica', es: 'Control solar de alto desempeño que reduce calor y rayos UV sin oscurecer el espacio, mejorando el confort y el ahorro energético.', en: 'High-performance solar control that cuts heat and UV without darkening the space, improving comfort and energy savings.', est: [1200, 3200] },
+      seguridad:     { name: 'Safety Film + StoneGuard', es: 'Películas de seguridad que refuerzan el cristal ante impactos y protegen superficies de alto valor contra rayaduras y desgaste.', en: 'Safety films that reinforce glass against impact and protect high-value surfaces from scratches and wear.', est: [1500, 4000] },
+      comunicacion:  { name: 'LED Film / LED Mesh', es: 'Medios digitales arquitectónicos: convierte fachadas y cristales en pantallas de alto impacto manteniendo transparencia.', en: 'Architectural digital media: turn facades and glass into high-impact screens while keeping transparency.', est: [8000, 20000] },
+      estetica:      { name: 'Texturas, Dichroic y Diseños', es: 'Acabados arquitectónicos a medida —esmerilados, piedra, metales, efectos cromáticos— para identidad y diseño.', en: 'Custom architectural finishes —frosted, stone, metals, chromatic effects— for identity and design.', est: [1800, 5000] },
+      antiespionaje: { name: 'Cloaking Anti-Spy Film', es: 'Privacidad avanzada que restringe ángulos de visión, impidiendo la observación no autorizada de pantallas y áreas sensibles.', en: 'Advanced privacy that restricts viewing angles, preventing unauthorized observation of screens and sensitive areas.', est: [3500, 6500] }
+    };
+    const sectorBoost = { hotel: 1.15, corporativo: 1.1, comercial: 1.05, salud: 1.1, residencial: 1.0, automotriz: 0.9 };
+    const cfgSector = document.getElementById('cfgSector');
+    const cfgObjetivo = document.getElementById('cfgObjetivo');
+    const recName = document.getElementById('cfgRecName');
+    const recDesc = document.getElementById('cfgRecDesc');
+    const recEst = document.getElementById('cfgRecEst');
+    const cfgWa = document.getElementById('cfgWhatsapp');
+    const WA = '5216144871005';
+
+    function fmt(n) { return '$' + Math.round(n / 100) * 100; }
+    function updateConfig() {
+      if (!cfgObjetivo || !recName) return;
+      const r = recommendations[cfgObjetivo.value];
+      const boost = sectorBoost[cfgSector.value] || 1;
+      const lang = L();
+      recName.textContent = r.name;
+      recDesc.textContent = r[lang];
+      const lo = fmt(r.est[0] * boost), hi = fmt(r.est[1] * boost);
+      recEst.textContent = (lang === 'en' ? 'Estimated range: ' : 'Rango estimado: ') + lo + ' – ' + hi + ' MXN / m²';
+      const secTxt = cfgSector.options[cfgSector.selectedIndex].getAttribute('data-' + lang);
+      const objTxt = cfgObjetivo.options[cfgObjetivo.selectedIndex].getAttribute('data-' + lang);
+      const msg = (lang === 'en'
+        ? `Hi SHADEX, I'm interested in "${r.name}" for a ${secTxt} space (goal: ${objTxt}). Could you send me more information?`
+        : `Hola SHADEX, me interesa "${r.name}" para un espacio ${secTxt} (objetivo: ${objTxt}). ¿Me pueden enviar más información?`);
+      cfgWa.href = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(msg);
+    }
+    if (cfgSector && cfgObjetivo) {
+      cfgSector.addEventListener('change', updateConfig);
+      cfgObjetivo.addEventListener('change', updateConfig);
+      updateConfig();
+      // Re-sincroniza el configurador y el nombre de textura al cambiar idioma
+      const langBtn = document.querySelector('.lang-toggle');
+      if (langBtn) langBtn.addEventListener('click', () => setTimeout(updateConfig, 0));
     }
   })();
 </script>
