@@ -1135,6 +1135,138 @@
     @media (prefers-reduced-motion: reduce) {
       * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
     }
+
+    /* ===== FASE 2 · SECCIONES NUEVAS ===== */
+    section { position: relative; }
+    .pad { padding: clamp(4.5rem, 9vw, 8rem) 0; }
+    .center { text-align: center; }
+    .narrow { max-width: 820px; margin-left: auto; margin-right: auto; }
+    .lead {
+      font-family: var(--font-display);
+      font-size: clamp(1.3rem, 2.6vw, 1.9rem);
+      line-height: 1.5;
+      opacity: 0.92;
+    }
+    .muted { opacity: 0.72; }
+    .accent-text { color: var(--klein-glow); }
+    .latin { font-family: var(--font-display); font-style: italic; }
+    .divider-quod {
+      font-family: var(--font-ui);
+      letter-spacing: 0.42em;
+      text-indent: 0.42em;
+      text-transform: uppercase;
+      font-size: clamp(0.62rem, 1.4vw, 0.8rem);
+      color: var(--klein-glow);
+      margin-top: 2.5rem;
+    }
+    .eyebrow {
+      font-family: var(--font-ui);
+      font-weight: 600;
+      font-size: 0.8rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--klein-glow);
+      margin-bottom: 0.9rem;
+    }
+
+    /* Sección azul Klein profunda */
+    .azul-section {
+      background:
+        radial-gradient(80% 80% at 50% 0%, rgba(31,60,255,0.28) 0%, transparent 60%),
+        linear-gradient(180deg, var(--klein-deep) 0%, #060718 100%);
+      color: #eef1ff;
+      overflow: hidden;
+    }
+    .azul-section .eyebrow { color: #aeb9ff; }
+    .azul-section p { color: #cdd4ff; }
+
+    /* Ecosistema */
+    .eco-cat { margin-top: 4rem; }
+    .eco-cat:first-of-type { margin-top: 3rem; }
+    .eco-cat-head {
+      display: flex; align-items: baseline; gap: 0.9rem;
+      border-bottom: 1px solid var(--color-border);
+      padding-bottom: 0.9rem; margin-bottom: 2rem; flex-wrap: wrap;
+    }
+    .eco-cat-head h3 {
+      font-family: var(--font-ui); font-weight: 600;
+      font-size: clamp(1.1rem, 2.4vw, 1.5rem); letter-spacing: 0.02em;
+    }
+    .eco-cat-head .idx { color: var(--klein-glow); font-family: var(--font-ui); font-weight: 600; font-size: 0.9rem; }
+    .eco-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.2rem;
+    }
+    .eco-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--border-radius-md);
+      padding: 1.6rem;
+      transition: var(--transition-smooth);
+    }
+    .eco-card:hover { transform: translateY(-5px); border-color: rgba(79,107,255,0.4); box-shadow: 0 18px 38px -14px rgba(0,0,0,0.5); }
+    .eco-card h4 { font-family: var(--font-ui); font-weight: 600; font-size: 1.08rem; margin-bottom: 0.5rem; }
+    .eco-card p { opacity: 0.74; font-size: 0.93rem; line-height: 1.55; }
+
+    /* Pilares (filosofía, experiencias, por qué) */
+    .pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2.2rem; margin-top: 3rem; }
+    .pillar h3 { font-family: var(--font-ui); font-weight: 600; font-size: 1.2rem; margin-bottom: 0.6rem; color: var(--klein-glow); }
+    .pillar p { opacity: 0.78; font-size: 1rem; line-height: 1.6; }
+    .pillar .big { font-family: var(--font-heading); font-size: 2rem; color: var(--color-black); display:block; margin-bottom: 0.3rem; }
+
+    /* Método */
+    .method-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 1.5rem; margin-top: 3rem; counter-reset: step; }
+    .method-step { padding: 1.6rem; border-radius: var(--border-radius-md); background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); }
+    .method-step .num { font-family: var(--font-ui); font-weight: 700; color: var(--klein-glow); font-size: 0.85rem; letter-spacing: 0.1em; }
+    .method-step h3 { font-family: var(--font-ui); font-weight: 600; font-size: 1.15rem; margin: 0.4rem 0 0.5rem; }
+    .method-step p { opacity: 0.74; font-size: 0.92rem; line-height: 1.5; }
+
+    /* Cifras */
+    .cifras-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 2.5rem 1.5rem; margin-top: 3.5rem; }
+    .cifra { text-align: center; }
+    .cifra .n { font-family: var(--font-heading); font-size: clamp(2.4rem, 6vw, 3.6rem); line-height: 1; color: var(--klein-glow); }
+    .cifra .l { font-family: var(--font-ui); font-size: 0.92rem; opacity: 0.78; margin-top: 0.6rem; letter-spacing: 0.02em; }
+
+    /* Sectores */
+    .sectors-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.2rem; margin-top: 3rem; }
+    .sector { padding: 1.6rem; border-radius: var(--border-radius-md); background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); transition: var(--transition-smooth); }
+    .sector:hover { border-color: rgba(79,107,255,0.4); transform: translateY(-4px); }
+    .sector h3 { font-family: var(--font-ui); font-weight: 600; font-size: 1.1rem; margin-bottom: 0.4rem; }
+    .sector p { opacity: 0.72; font-size: 0.9rem; line-height: 1.5; }
+
+    /* Marcas / proyectos */
+    .brand-row { display: flex; flex-wrap: wrap; gap: 0.8rem 1rem; justify-content: center; margin-top: 2.5rem; }
+    .brand-chip {
+      font-family: var(--font-ui); font-weight: 600; font-size: 0.95rem;
+      padding: 0.7rem 1.4rem; border-radius: var(--border-radius-full);
+      border: 1px solid var(--color-border); background: rgba(255,255,255,0.03);
+      opacity: 0.85; letter-spacing: 0.02em;
+    }
+
+    /* Voces (testimonios) */
+    .voces-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+    .voz { padding: 2rem; border-radius: var(--border-radius-lg); background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); }
+    .voz p { font-family: var(--font-display); font-style: italic; font-size: 1.05rem; line-height: 1.6; opacity: 0.9; }
+    .voz .mark { color: var(--klein-glow); font-size: 2.4rem; line-height: 0.4; font-family: var(--font-display); display: block; height: 0.7em; }
+
+    /* FAQ */
+    .faq { max-width: 820px; margin: 3rem auto 0; }
+    .faq details { border-bottom: 1px solid var(--color-border); padding: 1.1rem 0; }
+    .faq summary { cursor: pointer; font-family: var(--font-ui); font-weight: 600; font-size: 1.05rem; list-style: none; display: flex; justify-content: space-between; gap: 1rem; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: '+'; color: var(--klein-glow); font-size: 1.4rem; line-height: 1; transition: transform 0.2s; }
+    .faq details[open] summary::after { transform: rotate(45deg); }
+    .faq details p { opacity: 0.75; margin-top: 0.8rem; line-height: 1.6; font-size: 0.97rem; }
+
+    /* Lista doc / biblioteca */
+    .doc-list { display: flex; flex-wrap: wrap; gap: 0.7rem; justify-content: center; margin-top: 2.5rem; }
+    .doc-list span { font-family: var(--font-ui); font-size: 0.92rem; padding: 0.6rem 1.2rem; border-radius: var(--border-radius-full); border: 1px solid var(--color-border); opacity: 0.82; }
+
+    /* Experiencia digital */
+    .demo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.2rem; margin-top: 3rem; }
+    .demo-card { padding: 1.6rem; border-radius: var(--border-radius-md); background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.07); }
+    .demo-card .tag { font-family: var(--font-ui); font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--klein-glow); }
+    .demo-card h4 { font-family: var(--font-ui); font-weight: 600; font-size: 1.08rem; margin: 0.5rem 0 0.4rem; }
+    .demo-card p { opacity: 0.72; font-size: 0.92rem; line-height: 1.5; }
   </style>
 </head>
 <body>
@@ -1157,13 +1289,12 @@
     <span></span><span></span><span></span>
   </button>
   <ul class="nav-links">
-    <li><a href="#garantia" data-atmo="rgba(31,60,255,0.20)" data-es="Garantía" data-en="Warranty">Garantía</a></li>
-    <li><a href="#automotriz" data-atmo="rgba(140,150,170,0.18)" data-es="Automotriz" data-en="Automotive">Automotriz</a></li>
-    <li><a href="#smartfilm" data-atmo="rgba(0,180,255,0.18)" data-es="SmartFilm" data-en="SmartFilm">SmartFilm</a></li>
-    <li><a href="#arquitectonicas" data-atmo="rgba(80,120,255,0.20)" data-es="Arquitectónicas" data-en="Architectural">Arquitectónicas</a></li>
-    <li><a href="#safety" data-atmo="rgba(0,210,180,0.16)" data-es="Safety" data-en="Safety">Safety</a></li>
-    <li><a href="#alta-especialidad" data-atmo="rgba(150,90,255,0.18)" data-es="Alta Especialidad" data-en="Premium">Alta Especialidad</a></li>
-    <li><a href="#resenas" data-atmo="rgba(255,170,60,0.14)" data-es="Reseñas" data-en="Reviews">Reseñas</a></li>
+    <li><a href="#ecosistema" data-atmo="rgba(31,60,255,0.20)" data-es="Ecosistema" data-en="Ecosystem">Ecosistema</a></li>
+    <li><a href="#privacidad" data-atmo="rgba(0,180,255,0.18)" data-es="SmartFilm" data-en="SmartFilm">SmartFilm</a></li>
+    <li><a href="#medios" data-atmo="rgba(150,90,255,0.18)" data-es="LED & Display" data-en="LED & Display">LED &amp; Display</a></li>
+    <li><a href="#proyectos" data-atmo="rgba(140,150,170,0.18)" data-es="Proyectos" data-en="Projects">Proyectos</a></li>
+    <li><a href="#metodo" data-atmo="rgba(0,210,180,0.16)" data-es="Método" data-en="Method">Método</a></li>
+    <li><a href="#filosofia" data-atmo="rgba(255,170,60,0.14)" data-es="Filosofía" data-en="Philosophy">Filosofía</a></li>
     <li><a href="#contacto" class="nav-cta" data-atmo="rgba(31,60,255,0.22)" data-es="Contacto" data-en="Contact">Contacto</a></li>
     <li><button class="lang-toggle" onclick="toggleLanguage()">ES</button></li>
   </ul>
@@ -1204,398 +1335,371 @@
   </a>
 </section>
 
-<!-- ===== ESTADÍSTICAS ===== -->
-<section class="stats" id="estadisticas">
+<!-- ===== ECOSISTEMA TECNOLÓGICO ===== -->
+<section class="pad" id="ecosistema">
   <div class="container">
-    <div class="stats-grid">
-      <div class="stat-item">
-        <div class="stat-icon">🏆</div>
-        <div class="stat-number">10</div>
-        <div class="stat-label" data-es="Años de garantía" data-en="Years warranty">Años de garantía</div>
+    <div class="center narrow">
+      <div class="eyebrow" data-es="Ecosistema Tecnológico" data-en="Technology Ecosystem">Ecosistema Tecnológico</div>
+      <h2 class="sec-title" data-es="Una selección de tecnologías <span class='accent'>extraordinarias</span>" data-en="A curated selection of <span class='accent'>extraordinary</span> technologies">Una selección de tecnologías <span class="accent">extraordinarias</span></h2>
+      <p class="sec-text muted" style="margin-left:auto;margin-right:auto;" data-es="No buscamos tener más tecnologías. Buscamos tener las correctas: cada solución ha sido cuidadosamente seleccionada para transformar la manera en que las personas experimentan un espacio." data-en="We don't aim to have more technologies. We aim to have the right ones: every solution is carefully curated to transform the way people experience a space.">No buscamos tener más tecnologías. Buscamos tener las correctas: cada solución ha sido cuidadosamente seleccionada para transformar la manera en que las personas experimentan un espacio.</p>
+    </div>
+
+    <div class="eco-cat">
+      <div class="eco-cat-head"><span class="idx">01</span><h3 data-es="Control Solar Inteligente" data-en="Smart Solar Control">Control Solar Inteligente</h3></div>
+      <div class="eco-grid">
+        <div class="eco-card"><h4 data-es="Nanotecnología Cerámica Residencial" data-en="Residential Ceramic Nanotechnology">Nanotecnología Cerámica Residencial</h4><p data-es="Películas de nanotecnología cerámica que reducen la transferencia térmica, bloquean radiación UV y mejoran el confort interior sin alterar la apariencia del cristal." data-en="Ceramic nanotechnology films that reduce thermal transfer, block UV radiation and improve indoor comfort without altering the glass appearance.">Películas de nanotecnología cerámica que reducen la transferencia térmica, bloquean radiación UV y mejoran el confort interior sin alterar la apariencia del cristal.</p></div>
+        <div class="eco-card"><h4 data-es="Nanotecnología Cerámica Corporativa" data-en="Corporate Ceramic Nanotechnology">Nanotecnología Cerámica Corporativa</h4><p data-es="Control solar para edificios y oficinas que optimiza el rendimiento energético, disminuye el deslumbramiento y mejora la experiencia de los ocupantes." data-en="Solar control for buildings and offices that optimizes energy performance, reduces glare and improves the occupant experience.">Control solar para edificios y oficinas que optimiza el rendimiento energético, disminuye el deslumbramiento y mejora la experiencia de los ocupantes.</p></div>
+        <div class="eco-card"><h4 data-es="Nanotecnología Cerámica Automotriz" data-en="Automotive Ceramic Nanotechnology">Nanotecnología Cerámica Automotriz</h4><p data-es="Protección solar de alto desempeño para vehículos: reduce la temperatura interior, protege contra rayos UV y mejora la experiencia de conducción." data-en="High-performance solar protection for vehicles: reduces interior temperature, protects against UV rays and improves the driving experience.">Protección solar de alto desempeño para vehículos: reduce la temperatura interior, protege contra rayos UV y mejora la experiencia de conducción.</p></div>
       </div>
-      <div class="stat-item">
-        <div class="stat-icon">🏢</div>
-        <div class="stat-number">2,000+</div>
-        <div class="stat-label" data-es="Espacios transformados" data-en="Spaces transformed">Espacios transformados</div>
+    </div>
+
+    <div class="eco-cat" id="privacidad">
+      <div class="eco-cat-head"><span class="idx">02</span><h3 data-es="Privacidad Inteligente · SmartFilm" data-en="Smart Privacy · SmartFilm">Privacidad Inteligente · SmartFilm</h3></div>
+      <div class="eco-grid">
+        <div class="eco-card"><h4>SmartFilm Crystal White</h4><p data-es="Privacidad instantánea bajo demanda mediante tecnología PDLC de cristal líquido con acabado blanco translúcido." data-en="Instant on-demand privacy via liquid-crystal PDLC technology with a translucent white finish.">Privacidad instantánea bajo demanda mediante tecnología PDLC de cristal líquido con acabado blanco translúcido.</p></div>
+        <div class="eco-card"><h4>SmartFilm Crystal Black</h4><p data-es="Privacidad inteligente con apariencia negra de alto contraste para proyectos arquitectónicos exclusivos." data-en="Smart privacy with a high-contrast black appearance for exclusive architectural projects.">Privacidad inteligente con apariencia negra de alto contraste para proyectos arquitectónicos exclusivos.</p></div>
+        <div class="eco-card"><h4>SmartFilm Crystal Grey · Blue · Red · Green · Orange</h4><p data-es="Gama cromática de privacidad dinámica para identidad visual, espacios corporativos, residenciales y experiencias inmersivas." data-en="A chromatic range of dynamic privacy for visual identity, corporate, residential spaces and immersive experiences.">Gama cromática de privacidad dinámica para identidad visual, espacios corporativos, residenciales y experiencias inmersivas.</p></div>
+        <div class="eco-card"><h4>SmartFilm Blackout</h4><p data-es="Sistema de oscurecimiento total bajo demanda capaz de bloquear completamente la luz y la visibilidad para privacidad absoluta." data-en="Full on-demand blackout system that completely blocks light and visibility for absolute privacy.">Sistema de oscurecimiento total bajo demanda capaz de bloquear completamente la luz y la visibilidad para privacidad absoluta.</p></div>
       </div>
-      <div class="stat-item">
-        <div class="stat-icon">🇲🇽</div>
-        <div class="stat-number" data-es="Únicos" data-en="Exclusive">Únicos</div>
-        <div class="stat-label" data-es="Distribuidores en México" data-en="Distributors in Mexico">Distribuidores en México</div>
+    </div>
+
+    <div class="eco-cat">
+      <div class="eco-cat-head"><span class="idx">03</span><h3 data-es="Transparencia Interactiva" data-en="Interactive Transparency">Transparencia Interactiva</h3></div>
+      <div class="eco-grid">
+        <div class="eco-card"><h4>UTD · Ultra Thin Transparency Display</h4><p data-es="Película de polímeros inteligentes totalmente transparente que convierte superficies de cristal en plataformas de proyección digital de nueva generación, sin sacrificar transparencia." data-en="A fully transparent smart-polymer film that turns glass surfaces into next-generation digital projection platforms without sacrificing transparency.">Película de polímeros inteligentes totalmente transparente que convierte superficies de cristal en plataformas de proyección digital de nueva generación, sin sacrificar transparencia.</p></div>
+      </div>
+    </div>
+
+    <div class="eco-cat" id="medios">
+      <div class="eco-cat-head"><span class="idx">04</span><h3 data-es="Medios Digitales Arquitectónicos" data-en="Architectural Digital Media">Medios Digitales Arquitectónicos</h3></div>
+      <div class="eco-grid">
+        <div class="eco-card"><h4>LED Film</h4><p data-es="Pantalla LED transparente ultraligera que se integra sobre superficies de cristal, con comunicación visual de alto impacto y mínima intervención arquitectónica." data-en="Ultralight transparent LED screen that integrates onto glass surfaces, delivering high-impact visual communication with minimal architectural intervention.">Pantalla LED transparente ultraligera que se integra sobre superficies de cristal, con comunicación visual de alto impacto y mínima intervención arquitectónica.</p></div>
+        <div class="eco-card"><h4>LED Mesh</h4><p data-es="Sistema LED arquitectónico de gran formato para fachadas, atrios y edificios corporativos, manteniendo ventilación y transparencia parcial." data-en="Large-format architectural LED system for facades, atriums and corporate buildings, preserving ventilation and partial transparency.">Sistema LED arquitectónico de gran formato para fachadas, atrios y edificios corporativos, manteniendo ventilación y transparencia parcial.</p></div>
+        <div class="eco-card"><h4>Flying LED Mesh</h4><p data-es="Pantalla publicitaria aérea de alta resolución para experiencias visuales monumentales en grandes espacios comerciales y de entretenimiento." data-en="High-resolution aerial advertising display for monumental visual experiences in large commercial and entertainment spaces.">Pantalla publicitaria aérea de alta resolución para experiencias visuales monumentales en grandes espacios comerciales y de entretenimiento.</p></div>
+      </div>
+    </div>
+
+    <div class="eco-cat">
+      <div class="eco-cat-head"><span class="idx">05</span><h3 data-es="Películas de Alta Especialidad" data-en="High-Specialty Films">Películas de Alta Especialidad</h3></div>
+      <div class="eco-grid">
+        <div class="eco-card"><h4>Cloaking Anti-Spy Film</h4><p data-es="Privacidad avanzada que restringe ángulos de visión específicos, impidiendo la observación no autorizada de pantallas, interiores y áreas sensibles." data-en="Advanced privacy that restricts specific viewing angles, preventing unauthorized observation of screens, interiors and sensitive areas.">Privacidad avanzada que restringe ángulos de visión específicos, impidiendo la observación no autorizada de pantallas, interiores y áreas sensibles.</p></div>
+        <div class="eco-card"><h4>Photochromatic Film</h4><p data-es="Película inteligente que modifica automáticamente su oscurecimiento según la intensidad lumínica, optimizando confort visual, privacidad y control térmico." data-en="Smart film that automatically adjusts its tint based on light intensity, optimizing visual comfort, privacy and thermal control.">Película inteligente que modifica automáticamente su oscurecimiento según la intensidad lumínica, optimizando confort visual, privacidad y control térmico.</p></div>
+        <div class="eco-card"><h4>Dichroic Film</h4><p data-es="Película óptica multicapa que transforma el cristal mediante efectos cromáticos dinámicos que cambian según el ángulo y la iluminación." data-en="Multilayer optical film that transforms glass through dynamic chromatic effects that shift with angle and lighting.">Película óptica multicapa que transforma el cristal mediante efectos cromáticos dinámicos que cambian según el ángulo y la iluminación.</p></div>
+      </div>
+    </div>
+
+    <div class="eco-cat">
+      <div class="eco-cat-head"><span class="idx">06</span><h3 data-es="Protección de Superficies Premium" data-en="Premium Surface Protection">Protección de Superficies Premium</h3></div>
+      <div class="eco-grid">
+        <div class="eco-card"><h4>StoneGuard</h4><p data-es="Película transparente que preserva materiales de alto valor —mármol, ónix, granito, maderas finas, metales pulidos— frente a rayaduras, abrasión y desgaste." data-en="Transparent film that preserves high-value materials —marble, onyx, granite, fine woods, polished metals— against scratches, abrasion and wear.">Película transparente que preserva materiales de alto valor —mármol, ónix, granito, maderas finas, metales pulidos— frente a rayaduras, abrasión y desgaste.</p></div>
+      </div>
+    </div>
+
+    <div class="eco-cat">
+      <div class="eco-cat-head"><span class="idx">07</span><h3 data-es="Transformación de Espacios" data-en="Space Transformation">Transformación de Espacios</h3></div>
+      <div class="eco-grid">
+        <div class="eco-card"><h4 data-es="Esmerilados Premium" data-en="Premium Frosted">Esmerilados Premium</h4><p data-es="Privacidad elegante con distintos niveles de translucidez para oficinas, residencias y espacios corporativos." data-en="Elegant privacy with varying levels of translucency for offices, residences and corporate spaces.">Privacidad elegante con distintos niveles de translucidez para oficinas, residencias y espacios corporativos.</p></div>
+        <div class="eco-card"><h4 data-es="Texturas y Metales Arquitectónicos" data-en="Architectural Textures & Metals">Texturas y Metales Arquitectónicos</h4><p data-es="Acabados inspirados en piedra natural, concreto, textiles, aluminio cepillado, titanio y metales de diseño." data-en="Finishes inspired by natural stone, concrete, textiles, brushed aluminum, titanium and design metals.">Acabados inspirados en piedra natural, concreto, textiles, aluminio cepillado, titanio y metales de diseño.</p></div>
+        <div class="eco-card"><h4 data-es="Diseños Personalizados" data-en="Custom Designs">Diseños Personalizados</h4><p data-es="Patrones exclusivos, identidad corporativa, gráficos arquitectónicos y gradientes de privacidad totalmente a medida." data-en="Exclusive patterns, corporate identity, architectural graphics and fully custom privacy gradients.">Patrones exclusivos, identidad corporativa, gráficos arquitectónicos y gradientes de privacidad totalmente a medida.</p></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== SOLUCIONES ===== -->
-<section class="services" id="soluciones">
+<!-- ===== QUOD TANGO MUTO ===== -->
+<section class="pad center" id="quod">
+  <div class="container narrow">
+    <div class="eyebrow" data-es="Quod Tango Muto" data-en="Quod Tango Muto">Quod Tango Muto</div>
+    <h2 class="sec-title" data-es="Hay espacios que cumplen una función. Y hay espacios que provocan una <span class='accent'>emoción</span>." data-en="Some spaces serve a function. And some spaces stir an <span class='accent'>emotion</span>.">Hay espacios que cumplen una función. Y hay espacios que provocan una <span class="accent">emoción</span>.</h2>
+    <p class="lead" style="margin-top:2rem;" data-es="No nos limitamos a intervenir cristal, superficies o fachadas. Diseñamos experiencias visuales capaces de despertar sensaciones, elevar percepciones y redefinir la relación entre las personas y los espacios que habitan." data-en="We don't simply intervene glass, surfaces or facades. We design visual experiences that awaken sensations, elevate perception and redefine the relationship between people and the spaces they inhabit.">No nos limitamos a intervenir cristal, superficies o fachadas. Diseñamos experiencias visuales capaces de despertar sensaciones, elevar percepciones y redefinir la relación entre las personas y los espacios que habitan.</p>
+    <p class="sec-text muted" style="margin-left:auto;margin-right:auto;" data-es="Porque el verdadero lujo no consiste en poseer algo extraordinario. Consiste en sentirlo." data-en="Because true luxury is not about owning something extraordinary. It is about feeling it.">Porque el verdadero lujo no consiste en poseer algo extraordinario. Consiste en sentirlo.</p>
+    <div class="divider-quod" data-es="Todo lo que tocamos, lo transformamos" data-en="Everything we touch, we transform">Todo lo que tocamos, lo transformamos</div>
+  </div>
+</section>
+
+<!-- ===== EL AZUL DE LO IMPOSIBLE ===== -->
+<section class="pad azul-section" id="azul">
+  <div class="container narrow center">
+    <div class="eyebrow" data-es="El Azul de lo Imposible" data-en="The Blue of the Impossible">El Azul de lo Imposible</div>
+    <h2 class="sec-title" data-es="Antes de que existiera SHADEX, existía una <span class='accent-text'>idea</span>." data-en="Before SHADEX existed, there was an <span class='accent-text'>idea</span>.">Antes de que existiera SHADEX, existía una <span class="accent-text">idea</span>.</h2>
+    <p class="lead" style="margin-top:2rem;" data-es="La idea de que un espacio puede ser mucho más que cristal, acero, concreto o luz. Puede convertirse en una emoción." data-en="The idea that a space can be far more than glass, steel, concrete or light. It can become an emotion.">La idea de que un espacio puede ser mucho más que cristal, acero, concreto o luz. Puede convertirse en una emoción.</p>
+    <p data-es="Buscando inspiración la encontramos en la obsesión de un artista. A mediados del siglo XX, Yves Klein dedicó su vida a capturar lo infinito: un azul tan profundo, tan puro y tan envolvente que parecía desafiar los límites de la materia." data-en="Seeking inspiration, we found it in an artist's obsession. In the mid-20th century, Yves Klein devoted his life to capturing the infinite: a blue so deep, so pure and so enveloping that it seemed to defy the limits of matter.">Buscando inspiración la encontramos en la obsesión de un artista. A mediados del siglo XX, Yves Klein dedicó su vida a capturar lo infinito: un azul tan profundo, tan puro y tan envolvente que parecía desafiar los límites de la materia.</p>
+    <p data-es="No construimos SHADEX para vender películas ni para instalar tecnología, sino para transformar la manera en que las personas experimentan el mundo que las rodea. Por eso nuestro azul no es un color corporativo: es un símbolo de la frontera donde la tecnología deja de ser herramienta para convertirse en experiencia." data-en="We didn't build SHADEX to sell films or install technology, but to transform the way people experience the world around them. That's why our blue is not a corporate color: it is a symbol of the frontier where technology stops being a tool and becomes an experience.">No construimos SHADEX para vender películas ni para instalar tecnología, sino para transformar la manera en que las personas experimentan el mundo que las rodea. Por eso nuestro azul no es un color corporativo: es un símbolo de la frontera donde la tecnología deja de ser herramienta para convertirse en experiencia.</p>
+    <div class="divider-quod" data-es="Todo lo que tocamos, lo transformamos" data-en="Everything we touch, we transform">Todo lo que tocamos, lo transformamos</div>
+  </div>
+</section>
+
+<!-- ===== NUESTRA FILOSOFÍA ===== -->
+<section class="pad" id="filosofia">
   <div class="container">
-    <div class="section-label" data-es="Soluciones" data-en="Solutions">Soluciones</div>
-    <h2 class="sec-title"><span data-es="Tecnología que" data-en="Technology that">Tecnología que</span> <span class="accent" data-es="impacta" data-en="impacts">impacta</span></h2>
-    <div class="services-grid">
-
-      <div class="service-card">
-        <div class="service-number">01</div>
-        <div class="service-title"><span data-es="Nanocerámica" data-en="Nanoceramic">Nanocerámica</span> <small data-es="automotriz y arquitectónica" data-en="automotive & architectural">automotriz y arquitectónica</small></div>
-        <p class="service-desc" data-es="Películas laminadas con tecnología nanocerámica: hasta 99% de bloqueo UV y 90% de rechazo de calor IR, cuidando piel, mobiliario y acabados." data-en="Laminated films with nanoceramic technology: up to 99% UV blocking and 90% IR heat rejection, protecting skin, furniture and finishes.">Películas laminadas con tecnología nanocerámica: hasta 99% de bloqueo UV y 90% de rechazo de calor IR, cuidando piel, mobiliario y acabados.</p>
-        <div class="service-tags">
-          <span data-es="99% UV" data-en="99% UV">99% UV</span>
-          <span data-es="rechazo IR" data-en="IR rejection">rechazo IR</span>
-          <span data-es="confort térmico" data-en="thermal comfort">confort térmico</span>
-        </div>
-      </div>
-
-      <div class="service-card">
-        <div class="service-number">02</div>
-        <div class="service-title">SmartFilm <small data-es="vidrio inteligente" data-en="smart glass">vidrio inteligente</small></div>
-        <p class="service-desc" data-es="Película que cambia de opaca a transparente con un toque. Privacidad instantánea, sin cortinas ni mecanismos visibles." data-en="Film that switches from opaque to clear with one touch. Instant privacy, no curtains or visible mechanisms.">Película que cambia de opaca a transparente con un toque. Privacidad instantánea, sin cortinas ni mecanismos visibles.</p>
-        <div class="service-tags">
-          <span data-es="privacidad" data-en="privacy">privacidad</span>
-          <span data-es="control total" data-en="full control">control total</span>
-          <span data-es="lujo discreto" data-en="discreet luxury">lujo discreto</span>
-        </div>
-      </div>
-
-      <div class="service-card">
-        <div class="service-number">03</div>
-        <div class="service-title"><span data-es="Control Solar" data-en="Solar Control">Control Solar</span> <small data-es="películas arquitectónicas" data-en="architectural films">películas arquitectónicas</small></div>
-        <p class="service-desc" data-es="Tonos Smoke y acabados espejo Mirroring que aportan privacidad, rechazo de calor y una estética arquitectónica impecable." data-en="Smoke tones and mirror finishes that provide privacy, heat rejection and a flawless architectural aesthetic.">Tonos Smoke y acabados espejo Mirroring que aportan privacidad, rechazo de calor y una estética arquitectónica impecable.</p>
-        <div class="service-tags">
-          <span data-es="fachadas" data-en="facades">fachadas</span>
-          <span data-es="residencial" data-en="residential">residencial</span>
-          <span data-es="estética" data-en="aesthetics">estética</span>
-        </div>
-      </div>
-
-      <div class="service-card">
-        <div class="service-number">04</div>
-        <div class="service-title"><span data-es="Seguridad" data-en="Security">Seguridad</span> <small data-es="y alta especialidad" data-en="& premium tech">y alta especialidad</small></div>
-        <p class="service-desc" data-es="Films anti-impacto y antiasalto, anti-espionaje, fotocromáticos y autorreparables. Tecnología única en México." data-en="Anti-impact and anti-assault films, anti-espionage, photochromic and self-healing. Unique technology in Mexico.">Films anti-impacto y antiasalto, anti-espionaje, fotocromáticos y autorreparables. Tecnología única en México.</p>
-        <div class="service-tags">
-          <span data-es="anti-asalto" data-en="anti-assault">anti-asalto</span>
-          <span data-es="anti-espionaje" data-en="anti-spy">anti-espionaje</span>
-          <span data-es="self-healing" data-en="self-healing">self-healing</span>
-        </div>
-      </div>
-
+    <div class="center narrow">
+      <div class="eyebrow" data-es="Nuestra Filosofía" data-en="Our Philosophy">Nuestra Filosofía</div>
+      <h2 class="sec-title" data-es="Preferimos hablar de aquello que <span class='accent'>perseguimos</span>" data-en="We'd rather talk about what we <span class='accent'>pursue</span>">Preferimos hablar de aquello que <span class="accent">perseguimos</span></h2>
+      <p class="sec-text muted" style="margin-left:auto;margin-right:auto;" data-es="Cada tecnología responde a una pregunta: ¿puede mejorar la forma en que una persona percibe, experimenta y recuerda un espacio? Si la respuesta es sí, merece formar parte de nuestra visión." data-en="Every technology answers one question: can it improve the way a person perceives, experiences and remembers a space? If the answer is yes, it deserves a place in our vision.">Cada tecnología responde a una pregunta: ¿puede mejorar la forma en que una persona percibe, experimenta y recuerda un espacio? Si la respuesta es sí, merece formar parte de nuestra visión.</p>
+    </div>
+    <div class="pillars">
+      <div class="pillar"><h3 data-es="Tecnología con propósito" data-en="Technology with purpose">Tecnología con propósito</h3><p data-es="Toda tecnología debe mejorar una experiencia." data-en="All technology must improve an experience.">Toda tecnología debe mejorar una experiencia.</p></div>
+      <div class="pillar"><h3 data-es="Arquitectura primero" data-en="Architecture first">Arquitectura primero</h3><p data-es="La tecnología debe integrarse al espacio, nunca competir con él." data-en="Technology must integrate into the space, never compete with it.">La tecnología debe integrarse al espacio, nunca competir con él.</p></div>
+      <div class="pillar"><h3 data-es="Curatoría antes que cantidad" data-en="Curation over quantity">Curatoría antes que cantidad</h3><p data-es="Preferimos una solución extraordinaria a cien soluciones promedio." data-en="We prefer one extraordinary solution over a hundred average ones.">Preferimos una solución extraordinaria a cien soluciones promedio.</p></div>
+      <div class="pillar"><h3 data-es="Precisión sobre espectáculo" data-en="Precision over spectacle">Precisión sobre espectáculo</h3><p data-es="El verdadero impacto no necesita gritar." data-en="True impact does not need to shout.">El verdadero impacto no necesita gritar.</p></div>
+      <div class="pillar"><h3 data-es="Emoción como objetivo final" data-en="Emotion as the final goal">Emoción como objetivo final</h3><p data-es="La función es importante. La experiencia es inolvidable." data-en="Function matters. The experience is unforgettable.">La función es importante. La experiencia es inolvidable.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ===== PORTAFOLIO ===== -->
-<section class="portfolio" id="proyectos">
-  <div class="container">
-    <div class="section-label" data-es="Proyectos" data-en="Projects">Proyectos</div>
-    <h2 class="sec-title"><span data-es="Casos de" data-en="Success">Casos de</span> <span class="accent" data-es="éxito" data-en="Stories">éxito</span></h2>
-    <div class="portfolio-grid">
+<!-- ===== FACTOR WOW ===== -->
+<section class="pad center" id="factor-wow">
+  <div class="container narrow">
+    <div class="eyebrow" data-es="Factor WOW" data-en="WOW Factor">Factor WOW</div>
+    <h2 class="sec-title" data-es="El instante exacto en que un espacio <span class='accent'>cobra vida</span>" data-en="The exact instant a space <span class='accent'>comes alive</span>">El instante exacto en que un espacio <span class="accent">cobra vida</span></h2>
+    <p class="lead" style="margin-top:2rem;" data-es="Cuando la privacidad aparece donde antes no existía. Cuando la luz cambia. Cuando una superficie cobra vida y la tecnología desaparece, dejando únicamente la emoción." data-en="When privacy appears where it didn't exist before. When the light changes. When a surface comes alive and the technology disappears, leaving only the emotion.">Cuando la privacidad aparece donde antes no existía. Cuando la luz cambia. Cuando una superficie cobra vida y la tecnología desaparece, dejando únicamente la emoción.</p>
+    <p class="sec-text muted" style="margin-left:auto;margin-right:auto;" data-es="El Factor WOW no es exceso ni decoración. Es precisión emocional: la capacidad de generar una reacción inmediata a través de tecnología, diseño y ejecución." data-en="The WOW Factor is not excess or decoration. It is emotional precision: the ability to spark an immediate reaction through technology, design and execution.">El Factor WOW no es exceso ni decoración. Es precisión emocional: la capacidad de generar una reacción inmediata a través de tecnología, diseño y ejecución.</p>
+  </div>
+</section>
 
+<!-- ===== CURATORÍA TECNOLÓGICA ===== -->
+<section class="pad" id="curatoria">
+  <div class="container narrow center">
+    <div class="eyebrow" data-es="Curatoría Tecnológica" data-en="Technology Curation">Curatoría Tecnológica</div>
+    <h2 class="sec-title" data-es="No incorporamos tecnología porque sea nueva. La incorporamos porque es <span class='accent'>extraordinaria</span>." data-en="We don't adopt technology because it's new. We adopt it because it's <span class='accent'>extraordinary</span>.">No incorporamos tecnología porque sea nueva. La incorporamos porque es <span class="accent">extraordinaria</span>.</h2>
+    <p class="sec-text muted" style="margin-left:auto;margin-right:auto;" data-es="Cada solución se evalúa por desempeño, diseño, durabilidad, innovación y relevancia arquitectónica antes de formar parte de nuestro ecosistema. La verdadera sofisticación no consiste en ofrecer todo, sino en seleccionar únicamente lo excepcional." data-en="Each solution is evaluated on performance, design, durability, innovation and architectural relevance before joining our ecosystem. True sophistication is not about offering everything, but selecting only the exceptional.">Cada solución se evalúa por desempeño, diseño, durabilidad, innovación y relevancia arquitectónica antes de formar parte de nuestro ecosistema. La verdadera sofisticación no consiste en ofrecer todo, sino en seleccionar únicamente lo excepcional.</p>
+  </div>
+</section>
+
+<!-- ===== EXPERIENCIAS ===== -->
+<section class="pad" id="experiencias">
+  <div class="container">
+    <div class="center narrow">
+      <div class="eyebrow" data-es="Experiencias" data-en="Experiences">Experiencias</div>
+      <h2 class="sec-title" data-es="No hablamos de productos. Hablamos de <span class='accent'>sensaciones</span>." data-en="We don't talk about products. We talk about <span class='accent'>sensations</span>.">No hablamos de productos. Hablamos de <span class="accent">sensaciones</span>.</h2>
+    </div>
+    <div class="pillars">
+      <div class="pillar"><h3 data-es="Confort" data-en="Comfort">Confort</h3><p data-es="La diferencia entre habitar un espacio y disfrutarlo." data-en="The difference between inhabiting a space and enjoying it.">La diferencia entre habitar un espacio y disfrutarlo.</p></div>
+      <div class="pillar"><h3 data-es="Privacidad" data-en="Privacy">Privacidad</h3><p data-es="El lujo de decidir qué permanece visible y qué permanece reservado." data-en="The luxury of deciding what stays visible and what stays private.">El lujo de decidir qué permanece visible y qué permanece reservado.</p></div>
+      <div class="pillar"><h3 data-es="Protección" data-en="Protection">Protección</h3><p data-es="Preservar aquello que tiene valor." data-en="Preserving what holds value.">Preservar aquello que tiene valor.</p></div>
+      <div class="pillar"><h3 data-es="Comunicación Visual" data-en="Visual Communication">Comunicación Visual</h3><p data-es="Cuando una superficie deja de ser un límite." data-en="When a surface stops being a boundary.">Cuando una superficie deja de ser un límite.</p></div>
+      <div class="pillar"><h3 data-es="Impacto Arquitectónico" data-en="Architectural Impact">Impacto Arquitectónico</h3><p data-es="Los espacios memorables son imposibles de ignorar." data-en="Memorable spaces are impossible to ignore.">Los espacios memorables son imposibles de ignorar.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TRANSFORMACIONES (PROYECTOS) ===== -->
+<section class="pad" id="proyectos">
+  <div class="container">
+    <div class="center narrow">
+      <div class="eyebrow" data-es="Transformaciones" data-en="Transformations">Transformaciones</div>
+      <h2 class="sec-title" data-es="Algunas de las transformaciones que hemos tenido el privilegio de <span class='accent'>materializar</span>" data-en="Some of the transformations we've had the privilege to <span class='accent'>bring to life</span>">Algunas de las transformaciones que hemos tenido el privilegio de <span class="accent">materializar</span></h2>
+      <p class="sec-text muted" style="margin-left:auto;margin-right:auto;" data-es="Desde corporativos de clase mundial y hoteles de lujo hasta residencias privadas, centros de datos y experiencias digitales inmersivas." data-en="From world-class corporate spaces and luxury hotels to private residences, data centers and immersive digital experiences.">Desde corporativos de clase mundial y hoteles de lujo hasta residencias privadas, centros de datos y experiencias digitales inmersivas.</p>
+    </div>
+
+    <div class="portfolio-grid" style="margin-top:3rem;">
       <div class="portfolio-item">
-        <video class="portfolio-video" id="portfolioVideo1" muted loop playsinline preload="none" poster="poster.jpg" aria-label="Proyecto Nanocerámica Automotriz"></video>
-        <div class="info">
-          <span class="title" data-es="Nanocerámica · Automotriz" data-en="Nanoceramic · Automotive">Nanocerámica · Automotriz</span>
-          <span class="number">/01</span>
-        </div>
+        <video class="portfolio-video" id="portfolioVideo1" muted loop playsinline preload="none" poster="poster.jpg" aria-label="Proyecto SHADEX 1"></video>
+        <div class="info"><span class="title" data-es="Corporativo · Control Solar" data-en="Corporate · Solar Control">Corporativo · Control Solar</span><span class="number">/01</span></div>
       </div>
-
       <div class="portfolio-item">
-        <video class="portfolio-video" id="portfolioVideo2" muted loop playsinline preload="none" poster="poster.jpg" aria-label="Proyecto SmartFilm Residencial"></video>
-        <div class="info">
-          <span class="title" data-es="SmartFilm · Residencial" data-en="SmartFilm · Residential">SmartFilm · Residencial</span>
-          <span class="number">/02</span>
-        </div>
+        <video class="portfolio-video" id="portfolioVideo2" muted loop playsinline preload="none" poster="poster.jpg" aria-label="Proyecto SHADEX 2"></video>
+        <div class="info"><span class="title" data-es="Residencial · SmartFilm" data-en="Residential · SmartFilm">Residencial · SmartFilm</span><span class="number">/02</span></div>
       </div>
-
       <div class="portfolio-item">
-        <video class="portfolio-video" id="portfolioVideo3" muted loop playsinline preload="none" poster="poster.jpg" aria-label="Proyecto Control Solar Fachada"></video>
-        <div class="info">
-          <span class="title" data-es="Control Solar · Fachada" data-en="Solar Control · Facade">Control Solar · Fachada</span>
-          <span class="number">/03</span>
-        </div>
+        <video class="portfolio-video" id="portfolioVideo3" muted loop playsinline preload="none" poster="poster.jpg" aria-label="Proyecto SHADEX 3"></video>
+        <div class="info"><span class="title" data-es="Comercial · LED Film" data-en="Commercial · LED Film">Comercial · LED Film</span><span class="number">/03</span></div>
       </div>
-
       <div class="portfolio-item">
-        <video class="portfolio-video" id="portfolioVideo4" muted loop playsinline preload="none" poster="poster.jpg" aria-label="Proyecto Safety Line Seguridad"></video>
-        <div class="info">
-          <span class="title" data-es="Safety Line · Seguridad" data-en="Safety Line · Security">Safety Line · Seguridad</span>
-          <span class="number">/04</span>
-        </div>
+        <video class="portfolio-video" id="portfolioVideo4" muted loop playsinline preload="none" poster="poster.jpg" aria-label="Proyecto SHADEX 4"></video>
+        <div class="info"><span class="title" data-es="Hospitalidad · Texturas" data-en="Hospitality · Textures">Hospitalidad · Texturas</span><span class="number">/04</span></div>
       </div>
+    </div>
 
+    <p class="center muted" style="margin-top:2.5rem;" data-es="Han confiado en nosotros:" data-en="They have trusted us:">Han confiado en nosotros:</p>
+    <div class="brand-row">
+      <span class="brand-chip">American Express</span>
+      <span class="brand-chip">Televisa</span>
+      <span class="brand-chip">Bankaool</span>
+      <span class="brand-chip">Viking Life-Saving Equipment</span>
+      <span class="brand-chip" data-es="Servicio y Transportes Chijal" data-en="Servicio y Transportes Chijal">Servicio y Transportes Chijal</span>
+      <span class="brand-chip">Hotel SLS Cancún</span>
+      <span class="brand-chip">Torre Quórum</span>
+      <span class="brand-chip">Torre Asenzo</span>
+    </div>
+    <p class="center latin muted" style="margin-top:2.5rem;" data-es="Cada superficie tiene una historia. Cada espacio, un potencial oculto. Nuestro trabajo consiste en revelar ambos." data-en="Every surface has a story. Every space, a hidden potential. Our work is to reveal both.">Cada superficie tiene una historia. Cada espacio, un potencial oculto. Nuestro trabajo consiste en revelar ambos.</p>
+  </div>
+</section>
+
+<!-- ===== POR QUÉ LOS ARQUITECTOS NOS ELIGEN ===== -->
+<section class="pad" id="arquitectos">
+  <div class="container">
+    <div class="center narrow">
+      <div class="eyebrow" data-es="Por qué los arquitectos nos eligen" data-en="Why architects choose us">Por qué los arquitectos nos eligen</div>
+      <h2 class="sec-title" data-es="La arquitectura contemporánea exige más que <span class='accent'>productos</span>" data-en="Contemporary architecture demands more than <span class='accent'>products</span>">La arquitectura contemporánea exige más que <span class="accent">productos</span></h2>
+    </div>
+    <div class="pillars">
+      <div class="pillar"><h3 data-es="Respetamos la arquitectura" data-en="We respect the architecture">Respetamos la arquitectura</h3><p data-es="La mejor intervención es la que parece haber pertenecido siempre al espacio." data-en="The best intervention is the one that seems to have always belonged to the space.">La mejor intervención es la que parece haber pertenecido siempre al espacio.</p></div>
+      <div class="pillar"><h3 data-es="Sin compromisos estéticos" data-en="No aesthetic compromises">Sin compromisos estéticos</h3><p data-es="Privacidad, control solar, protección y comunicación visual, todo sin sacrificar diseño." data-en="Privacy, solar control, protection and visual communication — all without sacrificing design.">Privacidad, control solar, protección y comunicación visual, todo sin sacrificar diseño.</p></div>
+      <div class="pillar"><h3 data-es="Curatoría, no catálogo" data-en="Curation, not catalog">Curatoría, no catálogo</h3><p data-es="Una selección cuidadosamente evaluada para necesidades reales de proyectos contemporáneos." data-en="A carefully evaluated selection for the real needs of contemporary projects.">Una selección cuidadosamente evaluada para necesidades reales de proyectos contemporáneos.</p></div>
+      <div class="pillar"><h3 data-es="Especificaciones respaldadas" data-en="Backed specifications">Especificaciones respaldadas</h3><p data-es="Documentación técnica, métricas, certificaciones y validación para especificar con confianza." data-en="Technical documentation, metrics, certifications and validation to specify with confidence.">Documentación técnica, métricas, certificaciones y validación para especificar con confianza.</p></div>
+      <div class="pillar"><h3 data-es="Acompañamiento de principio a fin" data-en="End-to-end support">Acompañamiento de principio a fin</h3><p data-es="Análisis, especificación, selección, visualización y ejecución, juntos." data-en="Analysis, specification, selection, visualization and execution — together.">Análisis, especificación, selección, visualización y ejecución, juntos.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ===== GARANTÍA SHADEX ===== -->
-<section class="warranty" id="garantia">
+<!-- ===== VOCES DE LA TRANSFORMACIÓN ===== -->
+<section class="pad" id="voces">
   <div class="container">
-    <div class="section-label" data-es="Garantía" data-en="Warranty">Garantía</div>
-    <h2 class="sec-title"><span data-es="Garantía que" data-en="The warranty that">Garantía que</span> <span class="accent" data-es="nos distingue" data-en="sets us apart">nos distingue</span></h2>
-    <p class="sec-text" data-es="Calidad que perdura, garantía que respalda. Todas nuestras películas ofrecen una vida útil de hasta 25 años bajo condiciones ideales de uso, lo que nos permite respaldarlas con una garantía sin precedentes en el sector por un periodo de 10 años, que cubre tanto defectos de instalación como de fabricación." data-en="Quality that lasts, a warranty that backs it. All our films offer a service life of up to 25 years under ideal conditions of use, which lets us back them with an industry-leading 10-year warranty covering both installation and manufacturing defects.">Calidad que perdura, garantía que respalda. Todas nuestras películas ofrecen una vida útil de hasta 25 años bajo condiciones ideales de uso, lo que nos permite respaldarlas con una garantía sin precedentes en el sector por un periodo de 10 años, que cubre tanto defectos de instalación como de fabricación.</p>
-    <div class="spec-grid">
-      <div class="spec-card">
-        <h3 data-es="Hasta 25 años" data-en="Up to 25 years">Hasta 25 años</h3>
-        <p data-es="Vida útil de nuestras películas bajo condiciones ideales de uso." data-en="Service life of our films under ideal conditions of use.">Vida útil de nuestras películas bajo condiciones ideales de uso.</p>
-      </div>
-      <div class="spec-card">
-        <h3 data-es="10 años de garantía" data-en="10-year warranty">10 años de garantía</h3>
-        <p data-es="Respaldo sin precedentes en el sector que cubre tu inversión." data-en="An industry-leading warranty that protects your investment.">Respaldo sin precedentes en el sector que cubre tu inversión.</p>
-      </div>
-      <div class="spec-card">
-        <h3 data-es="Cobertura total" data-en="Full coverage">Cobertura total</h3>
-        <p data-es="Cubre defectos de instalación y de fabricación por igual." data-en="Covers both installation and manufacturing defects alike.">Cubre defectos de instalación y de fabricación por igual.</p>
-      </div>
+    <div class="center narrow">
+      <div class="eyebrow" data-es="Voces de la Transformación" data-en="Voices of Transformation">Voces de la Transformación</div>
+      <h2 class="sec-title" data-es="La excelencia no se proclama. Se <span class='accent'>experimenta</span>." data-en="Excellence is not proclaimed. It is <span class='accent'>experienced</span>.">La excelencia no se proclama. Se <span class="accent">experimenta</span>.</h2>
+    </div>
+    <div class="voces-grid">
+      <div class="voz"><span class="mark">“</span><p data-es="La diferencia fue inmediata. El espacio conservó exactamente la apariencia que buscábamos, pero la experiencia cambió por completo." data-en="The difference was immediate. The space kept exactly the look we wanted, but the experience changed entirely.">La diferencia fue inmediata. El espacio conservó exactamente la apariencia que buscábamos, pero la experiencia cambió por completo.</p></div>
+      <div class="voz"><span class="mark">“</span><p data-es="Lo que más nos impresionó fue la naturalidad con la que la tecnología se integró a la arquitectura. Parece que siempre estuvo ahí." data-en="What impressed us most was how naturally the technology integrated into the architecture. It looks like it was always there.">Lo que más nos impresionó fue la naturalidad con la que la tecnología se integró a la arquitectura. Parece que siempre estuvo ahí.</p></div>
+      <div class="voz"><span class="mark">“</span><p data-es="Buscábamos una solución funcional. Terminamos obteniendo una experiencia completamente nueva para nuestros colaboradores y visitantes." data-en="We were looking for a functional solution. We ended up with a completely new experience for our team and visitors.">Buscábamos una solución funcional. Terminamos obteniendo una experiencia completamente nueva para nuestros colaboradores y visitantes.</p></div>
+      <div class="voz"><span class="mark">“</span><p data-es="La reducción térmica fue notable, pero el verdadero cambio fue la sensación de confort que se percibe diariamente." data-en="The thermal reduction was remarkable, but the real change was the sense of comfort felt every day.">La reducción térmica fue notable, pero el verdadero cambio fue la sensación de confort que se percibe diariamente.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ===== LÍNEA AUTOMOTRIZ · NANOCERÁMICA ===== -->
-<section class="automotriz" id="automotriz">
+<!-- ===== ARQUITECTURA DEL RENDIMIENTO ===== -->
+<section class="pad" id="rendimiento">
   <div class="container">
-    <div class="section-label" data-es="Línea Automotriz" data-en="Automotive Line">Línea Automotriz</div>
-    <h2 class="sec-title"><span data-es="Nanocerámica" data-en="Nanoceramic">Nanocerámica</span> <span class="accent" data-es="Shining" data-en="Shining">Shining</span></h2>
-    <p class="sec-text" data-es="Películas nanocerámicas de alto desempeño para tu vehículo: máxima protección térmica y UV, claridad superior y un acabado elegante." data-en="High-performance nanoceramic films for your vehicle: maximum thermal and UV protection, superior clarity and an elegant finish.">Películas nanocerámicas de alto desempeño para tu vehículo: máxima protección térmica y UV, claridad superior y un acabado elegante.</p>
-    <div class="spec-grid">
-      <div class="spec-card">
-        <h3>Nanocerámica Shining</h3>
-        <span class="sub" data-es="Alta transparencia" data-en="High transparency">Alta transparencia</span>
-        <p data-es="Película nanocerámica de alta transparencia con protección térmica y UV de alto desempeño." data-en="High-transparency nanoceramic film with high-performance thermal and UV protection.">Película nanocerámica de alta transparencia con protección térmica y UV de alto desempeño.</p>
-        <div class="spec-badges"><span>99% UV</span><span data-es="Rechazo IR" data-en="IR rejection">Rechazo IR</span></div>
-      </div>
-      <div class="spec-card">
-        <h3>Nanocerámica Clearnight</h3>
-        <span class="sub" data-es="Tonos oscuros" data-en="Dark tones">Tonos oscuros</span>
-        <p data-es="Tonos oscuros con protección UV e IR de alto desempeño, que reduce deslumbramientos y garantiza visibilidad clara desde el interior incluso con máxima oscuridad exterior." data-en="Dark tones with high-performance UV and IR protection that reduce glare and ensure clear visibility from the inside even with maximum exterior darkness.">Tonos oscuros con protección UV e IR de alto desempeño, que reduce deslumbramientos y garantiza visibilidad clara desde el interior incluso con máxima oscuridad exterior.</p>
-        <div class="spec-badges"><span>99% UV</span><span data-es="Visión clara" data-en="Clear view">Visión clara</span><span data-es="Anti-glare" data-en="Anti-glare">Anti-glare</span></div>
-      </div>
-      <div class="spec-card">
-        <h3>Nanocerámica Safety</h3>
-        <span class="sub" data-es="Tricapa de seguridad" data-en="Triple-layer safety">Tricapa de seguridad</span>
-        <p data-es="Tonos oscuros con 99% de bloqueo UV y 90% de rechazo IR, que mantiene claridad interior total e incorpora una tricapa de seguridad para mayor confort y protección." data-en="Dark tones with 99% UV blocking and 90% IR rejection, keeping full interior clarity and adding a triple-layer safety film for greater comfort and protection.">Tonos oscuros con 99% de bloqueo UV y 90% de rechazo IR, que mantiene claridad interior total e incorpora una tricapa de seguridad para mayor confort y protección.</p>
-        <div class="spec-badges"><span>99% UV</span><span>90% IR</span><span data-es="Tricapa" data-en="Triple-layer">Tricapa</span></div>
-      </div>
+    <div class="center narrow">
+      <div class="eyebrow" data-es="Arquitectura del Rendimiento" data-en="Architecture of Performance">Arquitectura del Rendimiento</div>
+      <h2 class="sec-title" data-es="Detrás de toda experiencia memorable existe una <span class='accent'>ingeniería excepcional</span>" data-en="Behind every memorable experience lies <span class='accent'>exceptional engineering</span>">Detrás de toda experiencia memorable existe una <span class="accent">ingeniería excepcional</span></h2>
+      <p class="sec-text muted" style="margin-left:auto;margin-right:auto;" data-es="Cada tecnología se evalúa bajo criterios de rendimiento, durabilidad, eficiencia y calidad. Explore especificaciones, certificaciones, garantías y documentación de cada solución." data-en="Each technology is evaluated for performance, durability, efficiency and quality. Explore the specifications, certifications, warranties and documentation behind each solution.">Cada tecnología se evalúa bajo criterios de rendimiento, durabilidad, eficiencia y calidad. Explore especificaciones, certificaciones, garantías y documentación de cada solución.</p>
+    </div>
+    <div class="eco-grid" style="margin-top:3rem;">
+      <div class="eco-card"><h4 data-es="Nanotecnología Cerámica" data-en="Ceramic Nanotechnology">Nanotecnología Cerámica</h4><p data-es="Especificaciones · Certificaciones · Garantía · Documentación" data-en="Specifications · Certifications · Warranty · Documentation">Especificaciones · Certificaciones · Garantía · Documentación</p></div>
+      <div class="eco-card"><h4>SmartFilm · SmartFilm Blackout</h4><p data-es="Especificaciones · Certificaciones · Garantía · Documentación" data-en="Specifications · Certifications · Warranty · Documentation">Especificaciones · Certificaciones · Garantía · Documentación</p></div>
+      <div class="eco-card"><h4>UTD · LED Film · LED Mesh · Flying LED Mesh</h4><p data-es="Especificaciones · Certificaciones · Garantía · Documentación" data-en="Specifications · Certifications · Warranty · Documentation">Especificaciones · Certificaciones · Garantía · Documentación</p></div>
+      <div class="eco-card"><h4>Cloaking · Photochromatic · Dichroic · StoneGuard</h4><p data-es="Especificaciones · Certificaciones · Garantía · Documentación" data-en="Specifications · Certifications · Warranty · Documentation">Especificaciones · Certificaciones · Garantía · Documentación</p></div>
+    </div>
+    <p class="center latin accent-text" style="margin-top:2.5rem;" data-es="La emoción inspira. La ingeniería la hace posible." data-en="Emotion inspires. Engineering makes it possible.">La emoción inspira. La ingeniería la hace posible.</p>
+  </div>
+</section>
+
+<!-- ===== MÉTODO SHADEX ===== -->
+<section class="pad" id="metodo">
+  <div class="container">
+    <div class="center narrow">
+      <div class="eyebrow" data-es="El Método SHADEX" data-en="The SHADEX Method">El Método SHADEX</div>
+      <h2 class="sec-title" data-es="Toda transformación excepcional comienza con una <span class='accent'>visión clara</span>" data-en="Every exceptional transformation begins with a <span class='accent'>clear vision</span>">Toda transformación excepcional comienza con una <span class="accent">visión clara</span></h2>
+    </div>
+    <div class="method-grid">
+      <div class="method-step"><div class="num">01</div><h3 data-es="Descubrir" data-en="Discover">Descubrir</h3><p data-es="Comprendemos la arquitectura, las necesidades y la visión detrás de cada proyecto." data-en="We understand the architecture, the needs and the vision behind each project.">Comprendemos la arquitectura, las necesidades y la visión detrás de cada proyecto.</p></div>
+      <div class="method-step"><div class="num">02</div><h3 data-es="Curar" data-en="Curate">Curar</h3><p data-es="Seleccionamos las tecnologías más adecuadas para los objetivos definidos." data-en="We select the most suitable technologies for the defined goals.">Seleccionamos las tecnologías más adecuadas para los objetivos definidos.</p></div>
+      <div class="method-step"><div class="num">03</div><h3 data-es="Diseñar" data-en="Design">Diseñar</h3><p data-es="Una propuesta integral que armoniza tecnología, arquitectura y experiencia." data-en="An integral proposal that harmonizes technology, architecture and experience.">Una propuesta integral que armoniza tecnología, arquitectura y experiencia.</p></div>
+      <div class="method-step"><div class="num">04</div><h3 data-es="Transformar" data-en="Transform">Transformar</h3><p data-es="Ejecutamos cada intervención con precisión y atención al detalle." data-en="We execute each intervention with precision and attention to detail.">Ejecutamos cada intervención con precisión y atención al detalle.</p></div>
+      <div class="method-step"><div class="num">05</div><h3 data-es="Experimentar" data-en="Experience">Experimentar</h3><p data-es="El resultado no es una instalación, es una nueva forma de experimentar el espacio." data-en="The result is not an installation — it is a new way to experience the space.">El resultado no es una instalación, es una nueva forma de experimentar el espacio.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ===== LÍNEA CLÁSICOS ===== -->
-<section class="clasicos" id="clasicos">
+<!-- ===== ALIANZAS GLOBALES ===== -->
+<section class="pad center" id="alianzas">
+  <div class="container narrow">
+    <div class="eyebrow" data-es="Alianzas Globales" data-en="Global Alliances">Alianzas Globales</div>
+    <h2 class="sec-title" data-es="La excelencia no reconoce <span class='accent'>fronteras</span>" data-en="Excellence knows no <span class='accent'>borders</span>">La excelencia no reconoce <span class="accent">fronteras</span></h2>
+    <p class="sec-text muted" style="margin-left:auto;margin-right:auto;" data-es="Nuestras tecnologías provienen de algunos de los centros de innovación más avanzados del mundo. Colaboramos con fabricantes y especialistas internacionales para responder a los estándares más exigentes. Nuestro compromiso no es con una región: es con la excelencia." data-en="Our technologies come from some of the world's most advanced innovation centers. We collaborate with international manufacturers and specialists to meet the most demanding standards. Our commitment is not to a region — it is to excellence.">Nuestras tecnologías provienen de algunos de los centros de innovación más avanzados del mundo. Colaboramos con fabricantes y especialistas internacionales para responder a los estándares más exigentes. Nuestro compromiso no es con una región: es con la excelencia.</p>
+  </div>
+</section>
+
+<!-- ===== EXPERIENCIA DIGITAL ===== -->
+<section class="pad" id="experiencia-digital">
   <div class="container">
-    <div class="section-label" data-es="Línea Clásicos" data-en="Classics Line">Línea Clásicos</div>
-    <h2 class="sec-title"><span data-es="Protección" data-en="Protection">Protección</span> <span class="accent" data-es="a tu medida" data-en="made to measure">a tu medida</span></h2>
-    <p class="sec-text" data-es="Soluciones de protección y control solar pensadas para cada vehículo, desde clásicos hasta cobertura 360° con techo panorámico." data-en="Protection and solar control solutions designed for every vehicle, from classics to full 360° coverage with a panoramic roof.">Soluciones de protección y control solar pensadas para cada vehículo, desde clásicos hasta cobertura 360° con techo panorámico.</p>
-    <div class="spec-grid">
-      <div class="spec-card">
-        <h3>crystalshield</h3>
-        <span class="sub" data-es="Vehículos clásicos" data-en="Classic vehicles">Vehículos clásicos</span>
-        <p data-es="Película totalmente transparente con sutil tono verde, diseñada para preservar la visibilidad interior, los acabados y el tono original de los vidrios, ofreciendo protección sin alterar su estética auténtica." data-en="Fully transparent film with a subtle green tone, designed to preserve interior visibility, finishes and the original glass tone, offering protection without altering the authentic aesthetic.">Película totalmente transparente con sutil tono verde, diseñada para preservar la visibilidad interior, los acabados y el tono original de los vidrios, ofreciendo protección sin alterar su estética auténtica.</p>
-        <div class="spec-badges"><span data-es="Transparente" data-en="Transparent">Transparente</span><span data-es="Tono verde" data-en="Green tone">Tono verde</span></div>
-      </div>
-      <div class="spec-card">
-        <h3>diamondarmor</h3>
-        <span class="sub" data-es="Protección frontal" data-en="Front protection">Protección frontal</span>
-        <p data-es="Protección absoluta al frente. Bloqueo UV 99% · IR hasta 90%. Visión clara y sin fatiga con sistema Anti-Glare + ClearView™ y tecnología Dust Repel de última generación que se mantiene limpia." data-en="Absolute front protection. 99% UV blocking · up to 90% IR. Clear, fatigue-free vision with Anti-Glare + ClearView™ and latest-generation Dust Repel technology that stays clean.">Protección absoluta al frente. Bloqueo UV 99% · IR hasta 90%. Visión clara y sin fatiga con sistema Anti-Glare + ClearView™ y tecnología Dust Repel de última generación que se mantiene limpia.</p>
-        <div class="spec-badges"><span>99% UV</span><span>90% IR</span><span>ClearView™</span><span>Dust Repel</span></div>
-      </div>
-      <div class="spec-card">
-        <h3>diamondarmor black</h3>
-        <span class="sub" data-es="Protección 360°" data-en="360° protection">Protección 360°</span>
-        <p data-es="Cobertura total: frontal, trasero, laterales + aletas y techo panorámico. Protección térmica y UV (99% UV · hasta 90% IR), claridad y confort con Anti-Glare + ClearView™ y limpieza inteligente Dust Repel." data-en="Full coverage: front, rear, sides + quarter glass and panoramic roof. Thermal and UV protection (99% UV · up to 90% IR), clarity and comfort with Anti-Glare + ClearView™ and smart Dust Repel cleaning.">Cobertura total: frontal, trasero, laterales + aletas y techo panorámico. Protección térmica y UV (99% UV · hasta 90% IR), claridad y confort con Anti-Glare + ClearView™ y limpieza inteligente Dust Repel.</p>
-        <div class="spec-badges"><span data-es="Vehículo completo" data-en="Full vehicle">Vehículo completo</span><span data-es="Techo panorámico" data-en="Panoramic roof">Techo panorámico</span></div>
-      </div>
+    <div class="center narrow">
+      <div class="eyebrow" data-es="Experiencia Digital" data-en="Digital Experience">Experiencia Digital</div>
+      <h2 class="sec-title" data-es="Algunas tecnologías deben explicarse. Otras deben <span class='accent'>experimentarse</span>." data-en="Some technologies must be explained. Others must be <span class='accent'>experienced</span>.">Algunas tecnologías deben explicarse. Otras deben <span class="accent">experimentarse</span>.</h2>
+      <p class="sec-text muted" style="margin-left:auto;margin-right:auto;" data-es="Próximamente: demostraciones interactivas para explorar cada tecnología en vivo." data-en="Coming soon: interactive demos to explore each technology live.">Próximamente: demostraciones interactivas para explorar cada tecnología en vivo.</p>
+    </div>
+    <div class="demo-grid">
+      <div class="demo-card"><span class="tag" data-es="Demo" data-en="Demo">Demo</span><h4>SmartFilm ON / OFF</h4><p data-es="Privacidad instantánea en tiempo real." data-en="Instant privacy in real time.">Privacidad instantánea en tiempo real.</p></div>
+      <div class="demo-card"><span class="tag" data-es="Demo" data-en="Demo">Demo</span><h4 data-es="Control Solar Inteligente" data-en="Smart Solar Control">Control Solar Inteligente</h4><p data-es="Comparativa entre cristal convencional y nanotecnología cerámica." data-en="A comparison between conventional glass and ceramic nanotechnology.">Comparativa entre cristal convencional y nanotecnología cerámica.</p></div>
+      <div class="demo-card"><span class="tag" data-es="Demo" data-en="Demo">Demo</span><h4 data-es="Antes y Después" data-en="Before & After">Antes y Después</h4><p data-es="Transformaciones reales, lado a lado." data-en="Real transformations, side by side.">Transformaciones reales, lado a lado.</p></div>
+      <div class="demo-card"><span class="tag" data-es="Demo" data-en="Demo">Demo</span><h4 data-es="Explorador de Texturas" data-en="Texture Explorer">Explorador de Texturas</h4><p data-es="Acabados, gradientes, esmerilados y diseños personalizados." data-en="Finishes, gradients, frosted and custom designs.">Acabados, gradientes, esmerilados y diseños personalizados.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ===== SMARTFILM ===== -->
-<section class="smartfilm" id="smartfilm">
+<!-- ===== SHADEX EN CIFRAS ===== -->
+<section class="pad center azul-section" id="cifras">
   <div class="container">
-    <div class="section-label" data-es="SmartFilm" data-en="SmartFilm">SmartFilm</div>
-    <h2 class="sec-title"><span data-es="¿Qué es" data-en="What is">¿Qué es</span> <span class="accent">SmartFilm</span>?</h2>
-    <p class="sec-text" data-es="SmartFilm es una película inteligente para vidrio que cambia de opaca a transparente con solo encenderla. Sin energía, el cristal se ve blanco y brinda privacidad; al activarse, se vuelve claro y permite el paso de la luz y la vista. Todo sucede al instante, con un interruptor, sin cortinas ni mecanismos visibles." data-en="SmartFilm is a smart film for glass that changes from opaque to clear just by switching it on. Without power, the glass turns white and provides privacy; once activated, it becomes clear and lets light and views through. It all happens instantly, with a switch, with no curtains or visible mechanisms.">SmartFilm es una película inteligente para vidrio que cambia de opaca a transparente con solo encenderla. Sin energía, el cristal se ve blanco y brinda privacidad; al activarse, se vuelve claro y permite el paso de la luz y la vista. Todo sucede al instante, con un interruptor, sin cortinas ni mecanismos visibles.</p>
-    <p class="sec-text" data-es="SmartFilm redefine la privacidad con un solo toque. De transparente a opaca al instante, ofrece elegancia, modernidad y control absoluto sobre tus espacios. Perfecta para quienes buscan tecnología discreta y lujo en cada detalle." data-en="SmartFilm redefines privacy with a single touch. From clear to opaque instantly, it offers elegance, modernity and absolute control over your spaces. Perfect for those seeking discreet technology and luxury in every detail.">SmartFilm redefine la privacidad con un solo toque. De transparente a opaca al instante, ofrece elegancia, modernidad y control absoluto sobre tus espacios. Perfecta para quienes buscan tecnología discreta y lujo en cada detalle.</p>
-    <span class="price-tag" data-es="Desde $5,700 el m² · El mejor precio en México" data-en="From $5,700 per m² · The best price in Mexico">Desde $5,700 el m² · El mejor precio en México</span>
+    <div class="eyebrow" data-es="SHADEX en Cifras" data-en="SHADEX in Numbers">SHADEX en Cifras</div>
+    <h2 class="sec-title" data-es="La excelencia puede sentirse. También puede <span class='accent-text'>medirse</span>." data-en="Excellence can be felt. It can also be <span class='accent-text'>measured</span>.">La excelencia puede sentirse. También puede <span class="accent-text">medirse</span>.</h2>
+    <div class="cifras-grid">
+      <div class="cifra"><div class="n" data-es="+XX,XXX m²" data-en="+XX,XXX m²">+XX,XXX m²</div><div class="l" data-es="transformados" data-en="transformed">transformados</div></div>
+      <div class="cifra"><div class="n" data-es="+XXX" data-en="+XXX">+XXX</div><div class="l" data-es="proyectos ejecutados" data-en="projects delivered">proyectos ejecutados</div></div>
+      <div class="cifra"><div class="n" data-es="+XX" data-en="+XX">+XX</div><div class="l" data-es="años de experiencia" data-en="years of experience">años de experiencia</div></div>
+      <div class="cifra"><div class="n" data-es="MX" data-en="MX">MX</div><div class="l" data-es="cobertura nacional" data-en="nationwide coverage">cobertura nacional</div></div>
+    </div>
+    <p class="muted" style="margin-top:2.5rem;font-size:0.85rem;" data-es="(Cifras por definir junto al cliente.)" data-en="(Figures to be defined with the client.)">(Cifras por definir junto al cliente.)</p>
+  </div>
+</section>
 
-    <h3 style="font-family:var(--font-heading); font-size:clamp(1.6rem,4vw,2.4rem); margin-top:4rem; letter-spacing:-0.02em;" data-es="La transformación, paso a paso" data-en="The transformation, step by step">La transformación, paso a paso</h3>
-    <div class="process-grid">
-      <div class="process-step">
-        <div class="num">01</div>
-        <h3 data-es="Cotiza tu espacio" data-en="Quote your space">Cotiza tu espacio</h3>
-        <p data-es="Envíanos las medidas de tus ventanas y una fotografía para recibir tu cotización personalizada." data-en="Send us your window measurements and a photo to receive your personalized quote.">Envíanos las medidas de tus ventanas y una fotografía para recibir tu cotización personalizada.</p>
-      </div>
-      <div class="process-step">
-        <div class="num">02</div>
-        <h3 data-es="Proyecto personalizado" data-en="Custom project">Proyecto personalizado</h3>
-        <p data-es="Te enviaremos una propuesta hecha a tu medida, pensada para adaptarse perfectamente a tu espacio." data-en="We'll send you a tailor-made proposal, designed to fit your space perfectly.">Te enviaremos una propuesta hecha a tu medida, pensada para adaptarse perfectamente a tu espacio.</p>
-      </div>
-      <div class="process-step">
-        <div class="num">03</div>
-        <h3 data-es="La transformación" data-en="The transformation">La transformación</h3>
-        <p data-es="En Chihuahua acudimos a tu domicilio. Fuera del estado, instálalo tú mismo con nuestro kit completo o pide que un experto llegue a tu puerta. Disponible en todo México." data-en="In Chihuahua we come to your home. Outside the state, install it yourself with our complete kit or have an expert come to your door. Available throughout Mexico.">En Chihuahua acudimos a tu domicilio. Fuera del estado, instálalo tú mismo con nuestro kit completo o pide que un experto llegue a tu puerta. Disponible en todo México.</p>
-      </div>
+<!-- ===== SECTORES QUE TRANSFORMAMOS ===== -->
+<section class="pad" id="sectores">
+  <div class="container">
+    <div class="center narrow">
+      <div class="eyebrow" data-es="Sectores que Transformamos" data-en="Sectors We Transform">Sectores que Transformamos</div>
+      <h2 class="sec-title" data-es="Cada industria enfrenta <span class='accent'>desafíos distintos</span>" data-en="Every industry faces <span class='accent'>different challenges</span>">Cada industria enfrenta <span class="accent">desafíos distintos</span></h2>
+    </div>
+    <div class="sectors-grid">
+      <div class="sector"><h3 data-es="Residencial" data-en="Residential">Residencial</h3><p data-es="Confort, privacidad, protección y control solar para espacios diseñados para disfrutarse." data-en="Comfort, privacy, protection and solar control for spaces designed to be enjoyed.">Confort, privacidad, protección y control solar para espacios diseñados para disfrutarse.</p></div>
+      <div class="sector"><h3 data-es="Corporativo" data-en="Corporate">Corporativo</h3><p data-es="Productividad, eficiencia energética, privacidad y bienestar laboral." data-en="Productivity, energy efficiency, privacy and workplace wellbeing.">Productividad, eficiencia energética, privacidad y bienestar laboral.</p></div>
+      <div class="sector"><h3 data-es="Comercial" data-en="Commercial">Comercial</h3><p data-es="Atraer atención, comunicar mensajes y generar experiencias memorables." data-en="Attract attention, communicate messages and create memorable experiences.">Atraer atención, comunicar mensajes y generar experiencias memorables.</p></div>
+      <div class="sector"><h3 data-es="Hospitalidad" data-en="Hospitality">Hospitalidad</h3><p data-es="Eleva la experiencia de huéspedes sin comprometer estética ni operación." data-en="Elevate the guest experience without compromising aesthetics or operation.">Eleva la experiencia de huéspedes sin comprometer estética ni operación.</p></div>
+      <div class="sector"><h3 data-es="Automotriz" data-en="Automotive">Automotriz</h3><p data-es="Control solar, protección UV, confort térmico y desempeño para vehículos de alto nivel." data-en="Solar control, UV protection, thermal comfort and performance for high-end vehicles.">Control solar, protección UV, confort térmico y desempeño para vehículos de alto nivel.</p></div>
+      <div class="sector"><h3 data-es="Salud" data-en="Healthcare">Salud</h3><p data-es="Privacidad, control visual y soluciones especializadas para entornos clínicos." data-en="Privacy, visual control and specialized solutions for clinical environments.">Privacidad, control visual y soluciones especializadas para entornos clínicos.</p></div>
+      <div class="sector"><h3 data-es="Educación" data-en="Education">Educación</h3><p data-es="Espacios más cómodos, eficientes y funcionales para instituciones." data-en="More comfortable, efficient and functional spaces for institutions.">Espacios más cómodos, eficientes y funcionales para instituciones.</p></div>
+      <div class="sector"><h3 data-es="Institucional" data-en="Institutional">Institucional</h3><p data-es="Soluciones para proyectos gubernamentales y de alta exigencia operativa." data-en="Solutions for government and high-demand operational projects.">Soluciones para proyectos gubernamentales y de alta exigencia operativa.</p></div>
     </div>
   </div>
 </section>
 
-<!-- ===== PELÍCULAS ARQUITECTÓNICAS · CONTROL SOLAR ===== -->
-<section class="arquitectonicas" id="arquitectonicas">
+<!-- ===== CONSIDERACIONES (FAQ) ===== -->
+<section class="pad" id="consideraciones">
   <div class="container">
-    <div class="section-label" data-es="Películas Arquitectónicas" data-en="Architectural Films">Películas Arquitectónicas</div>
-    <h2 class="sec-title"><span data-es="Control" data-en="Solar">Control</span> <span class="accent" data-es="Solar" data-en="Control">Solar</span></h2>
-    <p class="sec-text" data-es="Películas laminadas con tecnología nanocerámica diseñadas para permitir el paso de la luz y reducir la transmisión de rayos infrarrojos, en acabados Smoke y espejo Mirroring." data-en="Laminated films with nanoceramic technology designed to let light through while reducing infrared transmission, in Smoke and mirror Mirroring finishes.">Películas laminadas con tecnología nanocerámica diseñadas para permitir el paso de la luz y reducir la transmisión de rayos infrarrojos, en acabados Smoke y espejo Mirroring.</p>
-    <div class="spec-grid">
-      <div class="spec-card">
-        <h3>Nanocerámica Smoke</h3>
-        <span class="sub" data-es="Privacidad de día" data-en="Daytime privacy">Privacidad de día</span>
-        <p data-es="Alto rechazo solar cuidando piel, mobiliario y acabados. Su acabado ahumado exterior, en distintas tonalidades, brinda privacidad durante el día sin perder luminosidad interior, combinando estética, confort térmico y visibilidad total desde el interior." data-en="High solar rejection that protects skin, furniture and finishes. Its smoked exterior finish, in various tones, provides daytime privacy without losing interior brightness, combining aesthetics, thermal comfort and full visibility from inside.">Alto rechazo solar cuidando piel, mobiliario y acabados. Su acabado ahumado exterior, en distintas tonalidades, brinda privacidad durante el día sin perder luminosidad interior, combinando estética, confort térmico y visibilidad total desde el interior.</p>
-        <div class="spec-badges"><span>99% UV</span><span>81% IR</span></div>
-      </div>
-      <div class="spec-card">
-        <h3>Nanocerámica Mirroring</h3>
-        <span class="sub" data-es="Acabado espejo" data-en="Mirror finish">Acabado espejo</span>
-        <p data-es="Refleja elegancia y privacidad absoluta. Su tono espejo realza la arquitectura exterior mientras mantiene una vista clara desde el interior. Rechaza el calor, bloquea rayos UV y transforma cualquier fachada en un símbolo de sofisticación." data-en="Reflects elegance and absolute privacy. Its mirror tone enhances the exterior architecture while keeping a clear view from inside. It rejects heat, blocks UV rays and turns any facade into a symbol of sophistication.">Refleja elegancia y privacidad absoluta. Su tono espejo realza la arquitectura exterior mientras mantiene una vista clara desde el interior. Rechaza el calor, bloquea rayos UV y transforma cualquier fachada en un símbolo de sofisticación.</p>
-        <div class="spec-badges"><span>99% UV</span><span>93% IR</span></div>
-        <div class="tone-dots"><span>Azul</span><span>Verde</span><span>Rose Gold</span><span>Silver</span><span>Gold</span></div>
-      </div>
-      <div class="spec-card">
-        <h3>Nanocerámica Mirroring Soft</h3>
-        <span class="sub" data-es="Espejo equilibrado" data-en="Balanced mirror">Espejo equilibrado</span>
-        <p data-es="Refleja elegancia y privacidad con un acabado espejo más sutil y equilibrado. Su tono exterior aporta una estética moderna y discreta, mientras su ligera tonalidad interior crea espacios más frescos e íntimos, ideal para privacidad refinada sin perder claridad." data-en="Reflects elegance and privacy with a more subtle, balanced mirror finish. Its exterior tone brings a modern, discreet aesthetic while its light interior tint creates cooler, more intimate spaces, ideal for refined privacy without losing clarity.">Refleja elegancia y privacidad con un acabado espejo más sutil y equilibrado. Su tono exterior aporta una estética moderna y discreta, mientras su ligera tonalidad interior crea espacios más frescos e íntimos, ideal para privacidad refinada sin perder claridad.</p>
-        <div class="spec-badges"><span>99% UV</span><span>84% IR</span></div>
-      </div>
+    <div class="center narrow">
+      <div class="eyebrow" data-es="Consideraciones" data-en="Considerations">Consideraciones</div>
+      <h2 class="sec-title" data-es="Preguntas <span class='accent'>frecuentes</span>" data-en="Frequently <span class='accent'>asked</span>">Preguntas <span class="accent">frecuentes</span></h2>
+    </div>
+    <div class="faq">
+      <details><summary data-es="¿La apariencia del cristal cambia?" data-en="Does the glass appearance change?">¿La apariencia del cristal cambia?</summary><p data-es="Depende de la tecnología. Algunas son prácticamente imperceptibles; otras forman parte activa de la propuesta estética del espacio." data-en="It depends on the technology. Some are virtually imperceptible; others are an active part of the space's aesthetic.">Depende de la tecnología. Algunas son prácticamente imperceptibles; otras forman parte activa de la propuesta estética del espacio.</p></details>
+      <details><summary data-es="¿Requieren mantenimiento especial?" data-en="Do they require special maintenance?">¿Requieren mantenimiento especial?</summary><p data-es="La mayoría requiere únicamente procedimientos convencionales de limpieza y mantenimiento." data-en="Most require only conventional cleaning and maintenance procedures.">La mayoría requiere únicamente procedimientos convencionales de limpieza y mantenimiento.</p></details>
+      <details><summary data-es="¿Pueden instalarse sobre cristal existente?" data-en="Can they be installed on existing glass?">¿Pueden instalarse sobre cristal existente?</summary><p data-es="Sí. Muchas tecnologías fueron desarrolladas específicamente para integrarse sobre superficies ya instaladas." data-en="Yes. Many technologies were developed specifically to integrate onto already-installed surfaces.">Sí. Muchas tecnologías fueron desarrolladas específicamente para integrarse sobre superficies ya instaladas.</p></details>
+      <details><summary data-es="¿Existe garantía?" data-en="Is there a warranty?">¿Existe garantía?</summary><p data-es="Sí. Cada tecnología cuenta con condiciones específicas de garantía respaldadas por fabricante y documentación técnica." data-en="Yes. Each technology has specific warranty conditions backed by the manufacturer and technical documentation.">Sí. Cada tecnología cuenta con condiciones específicas de garantía respaldadas por fabricante y documentación técnica.</p></details>
+      <details><summary data-es="¿Trabajan proyectos fuera de Chihuahua?" data-en="Do you work on projects outside Chihuahua?">¿Trabajan proyectos fuera de Chihuahua?</summary><p data-es="Sí. Participamos en proyectos a nivel nacional y en aplicaciones especiales de alto desempeño." data-en="Yes. We take part in projects nationwide and in special high-performance applications.">Sí. Participamos en proyectos a nivel nacional y en aplicaciones especiales de alto desempeño.</p></details>
+      <details><summary data-es="¿Cómo sé qué tecnología necesito?" data-en="How do I know which technology I need?">¿Cómo sé qué tecnología necesito?</summary><p data-es="Nuestro equipo realiza un proceso de análisis y selección para identificar la solución más adecuada según los objetivos del proyecto." data-en="Our team runs an analysis and selection process to identify the most suitable solution for your project's goals.">Nuestro equipo realiza un proceso de análisis y selección para identificar la solución más adecuada según los objetivos del proyecto.</p></details>
     </div>
   </div>
 </section>
 
-<!-- ===== SAFETY LINE ===== -->
-<section class="safety" id="safety">
-  <div class="container">
-    <div class="section-label" data-es="Safety Line" data-en="Safety Line">Safety Line</div>
-    <h2 class="sec-title"><span data-es="Seguridad que" data-en="Security that">Seguridad que</span> <span class="accent" data-es="protege" data-en="protects">protege</span></h2>
-    <p class="sec-text" data-es="Películas que refuerzan la resistencia del vidrio ante impactos o asaltos, evitando que los fragmentos se dispersen al romperse, con opciones de control solar y anti-graffiti." data-en="Films that reinforce glass resistance against impacts or assaults, preventing fragments from scattering when broken, with solar control and anti-graffiti options.">Películas que refuerzan la resistencia del vidrio ante impactos o asaltos, evitando que los fragmentos se dispersen al romperse, con opciones de control solar y anti-graffiti.</p>
-    <div class="spec-grid">
-      <div class="spec-card">
-        <h3>Safety Line</h3>
-        <span class="sub" data-es="Transparente antiasalto" data-en="Transparent anti-assault">Transparente antiasalto</span>
-        <p data-es="Película totalmente transparente que refuerza la resistencia del vidrio ante impactos o asaltos. Su acabado pasa desapercibido manteniendo la estética original. Disponible en 4, 7 y 12 micras según el nivel de seguridad requerido." data-en="Fully transparent film that reinforces glass resistance against impacts or assaults. Its finish goes unnoticed, keeping the original aesthetic. Available in 4, 7 and 12 microns depending on the security level required.">Película totalmente transparente que refuerza la resistencia del vidrio ante impactos o asaltos. Su acabado pasa desapercibido manteniendo la estética original. Disponible en 4, 7 y 12 micras según el nivel de seguridad requerido.</p>
-        <div class="spec-badges"><span>99% UV</span><span>4 / 7 / 12 µ</span></div>
-      </div>
-      <div class="spec-card">
-        <h3 data-es="Safety + Control Solar" data-en="Safety + Solar Control">Safety + Control Solar</h3>
-        <span class="sub" data-es="Seguridad y privacidad" data-en="Security and privacy">Seguridad y privacidad</span>
-        <p data-es="Conserva todos los beneficios de resistencia a impactos y protección antiasalto de la línea Safety, incorporando una tonalidad oscura personalizable. Ofrece privacidad, reducción de deslumbramiento y protección UV. Disponible en 4 y 7 micras." data-en="Keeps all the impact-resistance and anti-assault benefits of the Safety line, adding a customizable dark tone. It offers privacy, glare reduction and UV protection. Available in 4 and 7 microns.">Conserva todos los beneficios de resistencia a impactos y protección antiasalto de la línea Safety, incorporando una tonalidad oscura personalizable. Ofrece privacidad, reducción de deslumbramiento y protección UV. Disponible en 4 y 7 micras.</p>
-        <div class="spec-badges"><span>99% UV</span><span>83% IR</span><span>4 / 7 µ</span></div>
-      </div>
-      <div class="spec-card">
-        <h3>Anti-Graffiti</h3>
-        <span class="sub" data-es="Escudo invisible" data-en="Invisible shield">Escudo invisible</span>
-        <p data-es="Protege tus superficies con elegancia. Diseñada para vidrio, acero, mármol o espejos, crea un escudo invisible que facilita la remoción de pintura y residuos, manteniendo los espacios impecables y conservando la estética original de cada superficie." data-en="Protects your surfaces with elegance. Designed for glass, steel, marble or mirrors, it creates an invisible shield that makes paint and residue easy to remove, keeping spaces flawless and preserving the original look of each surface.">Protege tus superficies con elegancia. Diseñada para vidrio, acero, mármol o espejos, crea un escudo invisible que facilita la remoción de pintura y residuos, manteniendo los espacios impecables y conservando la estética original de cada superficie.</p>
-        <div class="spec-badges"><span data-es="Multisuperficie" data-en="Multi-surface">Multisuperficie</span></div>
-      </div>
+<!-- ===== BIBLIOTECA TÉCNICA ===== -->
+<section class="pad center" id="biblioteca">
+  <div class="container narrow">
+    <div class="eyebrow" data-es="Biblioteca Técnica" data-en="Technical Library">Biblioteca Técnica</div>
+    <h2 class="sec-title" data-es="La innovación debe estar respaldada por información <span class='accent'>verificable</span>" data-en="Innovation must be backed by <span class='accent'>verifiable</span> information">La innovación debe estar respaldada por información <span class="accent">verificable</span></h2>
+    <div class="doc-list">
+      <span data-es="Fichas Técnicas" data-en="Datasheets">Fichas Técnicas</span>
+      <span data-es="Certificaciones" data-en="Certifications">Certificaciones</span>
+      <span data-es="Garantías" data-en="Warranties">Garantías</span>
+      <span data-es="Casos de Estudio" data-en="Case Studies">Casos de Estudio</span>
+      <span data-es="Especificaciones de Producto" data-en="Product Specifications">Especificaciones de Producto</span>
+      <span data-es="Guías de Aplicación" data-en="Application Guides">Guías de Aplicación</span>
     </div>
+    <p class="sec-text muted center" style="margin-left:auto;margin-right:auto;" data-es="Documentación disponible para arquitectos, desarrolladores, ingenieros y propietarios. Solicítala a nuestro equipo." data-en="Documentation available for architects, developers, engineers and owners. Request it from our team.">Documentación disponible para arquitectos, desarrolladores, ingenieros y propietarios. Solicítala a nuestro equipo.</p>
   </div>
 </section>
 
-<!-- ===== ALTA ESPECIALIDAD ===== -->
-<section class="alta-especialidad" id="alta-especialidad">
+<!-- ===== INICIAR UNA TRANSFORMACIÓN (CONTACTO) ===== -->
+<section class="pad contact" id="contacto">
   <div class="container">
-    <div class="section-label" data-es="Alta Especialidad" data-en="Premium Technology">Alta Especialidad</div>
-    <h2 class="sec-title"><span data-es="Tecnología" data-en="Technology">Tecnología</span> <span class="accent" data-es="única en México" data-en="unique in Mexico">única en México</span></h2>
-    <p class="sec-text" data-es="Soluciones de ingeniería avanzada para proyectos exclusivos y aplicaciones técnicas que no encontrarás en ningún otro lugar." data-en="Advanced engineering solutions for exclusive projects and technical applications you won't find anywhere else.">Soluciones de ingeniería avanzada para proyectos exclusivos y aplicaciones técnicas que no encontrarás en ningún otro lugar.</p>
-    <div class="spec-grid">
-      <div class="spec-card">
-        <h3 data-es="Anti-espionaje" data-en="Anti-espionage">Anti-espionaje</h3>
-        <span class="sub" data-es="Privacidad digital" data-en="Digital privacy">Privacidad digital</span>
-        <p data-es="Laminado transparente y discreto que se integra a cualquier ventana. Cuando en el interior hay pantallas, su función se activa: todo contenido digital queda invisible desde el exterior. Blinda visualmente información crítica en espacios corporativos, industriales y gubernamentales." data-en="Transparent, discreet laminate that integrates into any window. When there are screens inside, its function activates: all digital content becomes invisible from the outside. It visually shields critical information in corporate, industrial and government spaces.">Laminado transparente y discreto que se integra a cualquier ventana. Cuando en el interior hay pantallas, su función se activa: todo contenido digital queda invisible desde el exterior. Blinda visualmente información crítica en espacios corporativos, industriales y gubernamentales.</p>
-        <div class="spec-badges"><span data-es="Tecnología única" data-en="Unique tech">Tecnología única</span></div>
-      </div>
-      <div class="spec-card">
-        <h3 data-es="Fotocromática" data-en="Photochromic">Fotocromática</h3>
-        <span class="sub" data-es="Se adapta al sol" data-en="Adapts to the sun">Se adapta al sol</span>
-        <p data-es="Transforma cualquier vidrio en un sistema inteligente que se aclara o se oscurece automáticamente según la intensidad del sol. Clara en sombra, ahumada bajo el sol. Ofrece 99% de protección UV y alto rechazo de calor, sin electricidad ni mantenimiento." data-en="Turns any glass into a smart system that lightens or darkens automatically with the sun's intensity. Clear in shade, smoked under the sun. It offers 99% UV protection and high heat rejection, with no electricity or maintenance.">Transforma cualquier vidrio en un sistema inteligente que se aclara o se oscurece automáticamente según la intensidad del sol. Clara en sombra, ahumada bajo el sol. Ofrece 99% de protección UV y alto rechazo de calor, sin electricidad ni mantenimiento.</p>
-        <div class="spec-badges"><span>99% UV</span><span data-es="Sin electricidad" data-en="No power">Sin electricidad</span></div>
-      </div>
-      <div class="spec-card">
-        <h3>Stoneguard</h3>
-        <span class="sub" data-es="Autorreparable" data-en="Self-healing">Autorreparable</span>
-        <p data-es="Película de ingeniería avanzada para superficies de alto valor. Integra tecnología self-healing que regenera rayaduras micrométricas de forma progresiva con el tiempo o de manera inmediata mediante calor, preservando textura, color y acabado original." data-en="Advanced engineering film for high-value surfaces. It integrates self-healing technology that regenerates micrometric scratches progressively over time or instantly with heat, preserving texture, color and the original finish.">Película de ingeniería avanzada para superficies de alto valor. Integra tecnología self-healing que regenera rayaduras micrométricas de forma progresiva con el tiempo o de manera inmediata mediante calor, preservando textura, color y acabado original.</p>
-        <div class="spec-badges"><span>Self-healing</span></div>
-      </div>
+    <div class="center narrow">
+      <div class="eyebrow" data-es="Iniciar una Transformación" data-en="Start a Transformation">Iniciar una Transformación</div>
+      <h2 class="sec-title" data-es="Las ideas extraordinarias merecen <span class='accent'>espacios extraordinarios</span>" data-en="Extraordinary ideas deserve <span class='accent'>extraordinary spaces</span>">Las ideas extraordinarias merecen <span class="accent">espacios extraordinarios</span></h2>
+      <p class="sec-text muted" style="margin-left:auto;margin-right:auto;" data-es="Cuéntanos tu proyecto y descubramos juntos cómo la tecnología puede transformar tu entorno." data-en="Tell us about your project and let's discover together how technology can transform your space.">Cuéntanos tu proyecto y descubramos juntos cómo la tecnología puede transformar tu entorno.</p>
     </div>
-  </div>
-</section>
-
-<!-- ===== UV, IR, VLT ===== -->
-<section class="uv-ir-vlt" id="especificaciones">
-  <div class="container">
-    <div class="section-label" data-es="Especificaciones" data-en="Specifications">Especificaciones</div>
-    <h2 class="sec-title"><span data-es="¿Qué significan" data-en="What do">¿Qué significan</span> <span class="accent" data-es="UV, IR y VLT?" data-en="UV, IR and VLT mean?">UV, IR y VLT?</span></h2>
-    <p class="sec-text" data-es="Entiende las especificaciones técnicas de nuestros films para tomar la mejor decisión para tu proyecto." data-en="Understand the technical specifications of our films to make the best decision for your project.">Entiende las especificaciones técnicas de nuestros films para tomar la mejor decisión para tu proyecto.</p>
-    <div class="spec-grid">
-      <div class="spec-card">
-        <h3 style="color:var(--color-accent);">UV</h3>
-        <span class="sub" data-es="Protección Ultravioleta" data-en="Ultraviolet Protection">Protección Ultravioleta</span>
-        <p data-es="Indica qué tanto protege la película contra los rayos UV. Es el parámetro que garantiza el cuidado de piel, muebles y acabados interiores. Entre más alta la protección UV, mayor es la preservación y bienestar en tus espacios." data-en="Indicates how much the film protects against UV rays. It's the parameter that guarantees the care of skin, furniture and interior finishes. The higher the UV protection, the greater the preservation and wellbeing in your spaces.">Indica qué tanto protege la película contra los rayos UV. Es el parámetro que garantiza el cuidado de piel, muebles y acabados interiores. Entre más alta la protección UV, mayor es la preservación y bienestar en tus espacios.</p>
-      </div>
-      <div class="spec-card">
-        <h3 style="color:var(--color-accent);">IR</h3>
-        <span class="sub" data-es="Control de Calor Infrarrojo" data-en="Infrared Heat Control">Control de Calor Infrarrojo</span>
-        <p data-es="Mide la capacidad de la película para reducir la entrada de calor solar. Ayuda a mantener el interior más fresco y confortable. Un IR elevado significa mayor control térmico y eficiencia energética." data-en="Measures the film's ability to reduce incoming solar heat. It helps keep the interior cooler and more comfortable. A high IR means greater thermal control and energy efficiency.">Mide la capacidad de la película para reducir la entrada de calor solar. Ayuda a mantener el interior más fresco y confortable. Un IR elevado significa mayor control térmico y eficiencia energética.</p>
-      </div>
-      <div class="spec-card">
-        <h3 style="color:var(--color-accent);">VLT</h3>
-        <span class="sub" data-es="Transmisión de Luz Visible" data-en="Visible Light Transmission">Transmisión de Luz Visible</span>
-        <p data-es="Representa cuánta luz natural pasa a través del vidrio. Un VLT alto mantiene el espacio claro; uno más bajo ofrece mayor privacidad. Permite elegir el equilibrio ideal entre estética, visibilidad y confort." data-en="Represents how much natural light passes through the glass. A high VLT keeps the space bright; a lower one offers more privacy. It lets you choose the ideal balance between aesthetics, visibility and comfort.">Representa cuánta luz natural pasa a través del vidrio. Un VLT alto mantiene el espacio claro; uno más bajo ofrece mayor privacidad. Permite elegir el equilibrio ideal entre estética, visibilidad y confort.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ===== RESEÑAS ===== -->
-<section class="testimonials" id="resenas">
-  <div class="container">
-    <div class="section-label" data-es="Reseñas" data-en="Reviews">Reseñas</div>
-    <h2 class="sec-title"><span data-es="Reseñas" data-en="What our">Reseñas</span> <span class="accent" data-es="de clientes" data-en="clients say">de clientes</span></h2>
-    <div class="testimonial-grid">
-
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <p class="quote" data-es="“Referente a la temperatura y refracción de la luz solar la verdad cambió muchísimo, la luz del sol entra pero no te quema los brazos, manos ni piernas, se siente más fresco el interior y mi hijo va atrás y no me preocupa si le pega la luz del sol.”" data-en="“Regarding temperature and sunlight refraction it really changed a lot; sunlight comes in but it doesn't burn your arms, hands or legs, the interior feels cooler and my son rides in the back and I'm no longer worried about the sun hitting him.”">“Referente a la temperatura y refracción de la luz solar la verdad cambió muchísimo, la luz del sol entra pero no te quema los brazos, manos ni piernas, se siente más fresco el interior y mi hijo va atrás y no me preocupa si le pega la luz del sol.”</p>
-        <div class="author">Enrique</div>
-        <div class="role" data-es="Nanocerámica · 2 vehículos completos" data-en="Nanoceramic · 2 full vehicles">Nanocerámica · 2 vehículos completos</div>
-      </div>
-
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <p class="quote" data-es="“Muy bien, excelente. Duermo mucho mejor con la del cuarto porque ya no entra luz, y la de la sala mi hijo está muy contento porque ya juega mejor su Xbox.”" data-en="“Very good, excellent. I sleep much better with the one in the bedroom because light no longer comes in, and with the living room one my son is very happy because he plays his Xbox better.”">“Muy bien, excelente. Duermo mucho mejor con la del cuarto porque ya no entra luz, y la de la sala mi hijo está muy contento porque ya juega mejor su Xbox.”</p>
-        <div class="author">Lilia</div>
-        <div class="role" data-es="Nanocerámica Smoke · Residencial" data-en="Nanoceramic Smoke · Residential">Nanocerámica Smoke · Residencial</div>
-      </div>
-
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <p class="quote" data-es="“Me gustó mucho, se siente una gran diferencia, ahora duermo mucho mejor. Antes prendía el minisplit 6 u 8 horas, ahora nada más una hora y se siente la diferencia, la casa permanece más fresca por mucho tiempo. Lo recomiendo ampliamente.”" data-en="“I really liked it, you feel a big difference, now I sleep much better. Before I ran the mini-split 6 to 8 hours, now just one hour and you feel the difference, the house stays cooler for a long time. I highly recommend it.”">“Me gustó mucho, se siente una gran diferencia, ahora duermo mucho mejor. Antes prendía el minisplit 6 u 8 horas, ahora nada más una hora y se siente la diferencia, la casa permanece más fresca por mucho tiempo. Lo recomiendo ampliamente.”</p>
-        <div class="author">Gilberto</div>
-        <div class="role" data-es="Nanocerámica Smoke y Shining · Residencial" data-en="Nanoceramic Smoke & Shining · Residential">Nanocerámica Smoke y Shining · Residencial</div>
-      </div>
-
-      <div class="testimonial-card">
-        <div class="stars">★★★★★</div>
-        <p class="quote" data-es="“Solían arderme mucho las manos al conducir; cuando supe de ustedes no dudé en contratarlos, ahora ya no me arden las manos al conducir. Si eres de piel delicada es un producto indispensable.”" data-en="“My hands used to burn a lot while driving; when I heard about you I didn't hesitate to hire you, now my hands no longer burn while driving. If you have delicate skin it's an essential product.”">“Solían arderme mucho las manos al conducir; cuando supe de ustedes no dudé en contratarlos, ahora ya no me arden las manos al conducir. Si eres de piel delicada es un producto indispensable.”</p>
-        <div class="author">María</div>
-        <div class="role" data-es="Nanocerámica · Automotriz" data-en="Nanoceramic · Automotive">Nanocerámica · Automotriz</div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ===== CONTACTO ===== -->
-<section class="contact" id="contacto">
-  <div class="container">
-    <div class="contact-grid">
+    <div class="contact-grid" style="margin-top:3rem;">
       <div class="contact-info">
-        <div class="section-label" data-es="Contacto" data-en="Contact">Contacto</div>
-        <h2><span data-es="Cotizaciones" data-en="Quotes">Cotizaciones</span> <span class="accent" data-es="y citas" data-en="& appointments">y citas</span></h2>
         <div class="contact-list">
           <strong data-es="Horario:" data-en="Hours:">Horario:</strong> <span data-es="Lunes a Domingo · 9:00 am a 7:00 pm" data-en="Monday to Sunday · 9:00 am to 7:00 pm">Lunes a Domingo · 9:00 am a 7:00 pm</span><br>
           <strong>📍</strong> <span>Chihuahua, Chihuahua. México</span><br>
@@ -1603,13 +1707,13 @@
           <strong>📱</strong> <a href="tel:+526144871005">WhatsApp: (614) 487 1005</a><br>
           <strong>📷</strong> <a href="https://instagram.com/shadexcuu" target="_blank" rel="noopener">IG: @shadexcuu</a> · <a href="https://facebook.com/SHADEX" target="_blank" rel="noopener">FB: SHADEX</a>
         </div>
-        <a class="whatsapp-cta" href="https://wa.me/526144871005?text=Hola%20SHADEX,%20quiero%20cotizar%20un%20proyecto" target="_blank" rel="noopener" data-es="Escríbenos por WhatsApp" data-en="Message us on WhatsApp">Escríbenos por WhatsApp</a>
+        <a class="whatsapp-cta" href="https://wa.me/526144871005?text=Hola%20SHADEX,%20quiero%20iniciar%20una%20transformación" target="_blank" rel="noopener" data-es="Escríbenos por WhatsApp" data-en="Message us on WhatsApp">Escríbenos por WhatsApp</a>
       </div>
       <form class="contact-form" id="contactForm" novalidate>
         <input type="text" name="nombre" data-es-placeholder="Nombre completo" data-en-placeholder="Full name" placeholder="Nombre completo" autocomplete="name" required>
         <input type="email" name="email" data-es-placeholder="Correo electrónico" data-en-placeholder="Email address" placeholder="Correo electrónico" autocomplete="email" required>
         <input type="tel" name="telefono" data-es-placeholder="Teléfono / WhatsApp" data-en-placeholder="Phone / WhatsApp" placeholder="Teléfono / WhatsApp" autocomplete="tel">
-        <textarea name="mensaje" data-es-placeholder="Cuéntanos tu proyecto y las medidas de tus ventanas…" data-en-placeholder="Tell us about your project and your window measurements…" placeholder="Cuéntanos tu proyecto y las medidas de tus ventanas…" rows="3"></textarea>
+        <textarea name="mensaje" data-es-placeholder="Cuéntanos tu proyecto: tipo de espacio, objetivo y medidas aproximadas…" data-en-placeholder="Tell us about your project: type of space, goal and approximate measurements…" placeholder="Cuéntanos tu proyecto: tipo de espacio, objetivo y medidas aproximadas…" rows="3"></textarea>
         <button type="submit" data-es="Enviar por WhatsApp →" data-en="Send via WhatsApp →">Enviar por WhatsApp →</button>
         <p class="form-note" data-es="Al enviar se abrirá WhatsApp con tu mensaje listo para enviarlo a nuestro equipo." data-en="On submit, WhatsApp opens with your message ready to send to our team.">Al enviar se abrirá WhatsApp con tu mensaje listo para enviarlo a nuestro equipo.</p>
         <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
@@ -1618,19 +1722,17 @@
   </div>
 </section>
 
-<!-- ===== AVISO LEGAL ===== -->
-<section class="legal" id="aviso-legal">
-  <div class="container">
-    <div class="section-label" data-es="Legal" data-en="Legal">Legal</div>
-    <h2 class="sec-title"><span data-es="Aviso" data-en="Legal">Aviso</span> <span class="accent" data-es="Legal" data-en="Notice">Legal</span></h2>
-    <p class="sec-text" data-es="Información legal sobre nuestros productos y servicios. Vigente desde el 1 de enero de 2025 y con vigencia indefinida mientras permanezca publicado." data-en="Legal information about our products and services. Effective from January 1, 2025 and valid indefinitely while it remains published.">Información legal sobre nuestros productos y servicios. Vigente desde el 1 de enero de 2025 y con vigencia indefinida mientras permanezca publicado.</p>
-    <div style="background:rgba(255,255,255,0.05); border-radius:var(--border-radius-lg); padding:2rem; margin-top:2rem;">
-      <p style="opacity:0.8; margin-bottom:1rem;" data-es="Todos nuestros productos cumplen con las normativas mexicanas e internacionales vigentes. SHADEX se reserva el derecho de modificar especificaciones sin previo aviso." data-en="All our products comply with current Mexican and international regulations. SHADEX reserves the right to modify specifications without prior notice.">Todos nuestros productos cumplen con las normativas mexicanas e internacionales vigentes. SHADEX se reserva el derecho de modificar especificaciones sin previo aviso.</p>
-      <p style="opacity:0.8; margin-bottom:1rem;" data-es="Los porcentajes de protección UV e IR corresponden a valores de fábrica bajo condiciones de prueba y pueden variar según el sustrato y la instalación. Las garantías están sujetas a términos y condiciones específicos." data-en="The UV and IR protection percentages correspond to factory values under test conditions and may vary depending on the substrate and installation. Warranties are subject to specific terms and conditions.">Los porcentajes de protección UV e IR corresponden a valores de fábrica bajo condiciones de prueba y pueden variar según el sustrato y la instalación. Las garantías están sujetas a términos y condiciones específicos.</p>
-      <p style="opacity:0.8;" data-es="Para cualquier consulta, contáctanos en support@shadex.com.mx." data-en="For any inquiries, contact us at support@shadex.com.mx.">Para cualquier consulta, contáctanos en support@shadex.com.mx.</p>
-    </div>
+<!-- ===== MANIFIESTO ===== -->
+<section class="pad center azul-section" id="manifiesto">
+  <div class="container narrow">
+    <div class="eyebrow" data-es="Manifiesto" data-en="Manifesto">Manifiesto</div>
+    <h2 class="sec-title" data-es="Nuestra misión no consiste en modificar edificios. Consiste en transformar <span class='accent-text'>percepciones</span>." data-en="Our mission is not to modify buildings. It is to transform <span class='accent-text'>perceptions</span>.">Nuestra misión no consiste en modificar edificios. Consiste en transformar <span class="accent-text">percepciones</span>.</h2>
+    <p class="lead" style="margin-top:2rem;" data-es="Algunos lugares permanecen en nuestra memoria. No por su tamaño, su costo o su complejidad, sino por la manera en que nos hicieron sentir." data-en="Some places stay in our memory. Not for their size, cost or complexity, but for the way they made us feel.">Algunos lugares permanecen en nuestra memoria. No por su tamaño, su costo o su complejidad, sino por la manera en que nos hicieron sentir.</p>
+    <p data-es="Privacidad donde antes no existía. Confort donde había incomodidad. Protección donde había vulnerabilidad. Experiencias donde antes solo existían superficies." data-en="Privacy where there was none. Comfort where there was discomfort. Protection where there was vulnerability. Experiences where there were only surfaces.">Privacidad donde antes no existía. Confort donde había incomodidad. Protección donde había vulnerabilidad. Experiencias donde antes solo existían superficies.</p>
+    <div class="divider-quod" data-es="Quod Tango Muto · Todo lo que tocamos, lo transformamos" data-en="Quod Tango Muto · Everything we touch, we transform">Quod Tango Muto · Todo lo que tocamos, lo transformamos</div>
   </div>
 </section>
+
 
 <!-- ===== FOOTER ===== -->
 <footer>
@@ -1785,7 +1887,7 @@
     }
 
     // Improved scroll animations with better timing and staggering
-    const elements = document.querySelectorAll('.service-card, .portfolio-item, .testimonial-card, .contact-grid > div, .stat-item, .spec-card, .process-step');
+    const elements = document.querySelectorAll('.service-card, .portfolio-item, .testimonial-card, .contact-grid > div, .stat-item, .spec-card, .process-step, .eco-card, .pillar, .method-step, .sector, .voz, .cifra, .demo-card, .brand-chip');
     
     const observerOptions = {
       threshold: 0.1,
