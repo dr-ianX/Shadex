@@ -34,13 +34,17 @@
     /* ===== CSS VARIABLES ===== */
     :root {
       --color-black: #f7f2ed;
-      --color-white: #0a0a0a;
-      --color-accent: #0099ff;
-      --color-accent-hover: #0077cc;
-      --color-grey: #a0a0a0;
-      --color-border: #2a2a2a;
-      --color-background: #0a0a0a;
-      --color-background-alt: #111111;
+      --color-white: #050608;
+      /* Azul Klein — firma de marca (El Azul de lo Imposible) */
+      --klein: #1f3cff;
+      --klein-deep: #0a1a8c;
+      --klein-glow: #4f6bff;
+      --color-accent: #1f3cff;
+      --color-accent-hover: #4f6bff;
+      --color-grey: #9aa0ad;
+      --color-border: #1c2030;
+      --color-background: #050608;
+      --color-background-alt: #0a0c14;
       --color-dark: #f7f2ed;
       --font-heading: 'Libre Caslon Condensed', serif;
       --font-body: 'Geist', sans-serif;
@@ -63,10 +67,11 @@
     }
     html {
       scroll-behavior: smooth;
+      background: var(--color-background);
     }
     body {
       font-family: var(--font-body);
-      background: var(--color-background);
+      background: transparent;
       color: var(--color-black);
       line-height: 1.5;
     }
@@ -99,6 +104,20 @@
       font-family: 'Geist', sans-serif;
     }
 
+    /* ===== ATMÓSFERA REACTIVA (fondo cinematográfico) ===== */
+    .atmosphere {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      background:
+        radial-gradient(60vmax 60vmax at var(--atmo-x, 50%) var(--atmo-y, 12%),
+          var(--atmo-color, rgba(31,60,255,0.16)) 0%, transparent 60%),
+        var(--color-background);
+      transition: background-color 1.2s ease, opacity 1.2s ease;
+      opacity: 1;
+    }
+
     /* ===== HEADER (NAV) ===== */
     header {
       position: fixed;
@@ -109,10 +128,17 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(247, 242, 237, 0.85);
-      backdrop-filter: blur(12px);
+      background: linear-gradient(to bottom, rgba(5,6,8,0.65), rgba(5,6,8,0));
+      backdrop-filter: blur(2px);
       z-index: 1000;
-      border-bottom: 1px solid rgba(16, 16, 16, 0.05);
+      border-bottom: 1px solid transparent;
+      transition: background 0.4s ease, border-color 0.4s ease, padding 0.4s ease;
+    }
+    header.scrolled {
+      background: rgba(7, 8, 14, 0.82);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--color-border);
+      padding: 0.85rem 2rem;
     }
     .logo {
       font-family: 'Libre Caslon Condensed', serif;
@@ -193,57 +219,85 @@
     }
 
     /* ===== SPLASH SCREEN ===== */
+    /* ===== INTRO CINEMATOGRÁFICA ===== */
     .splash-screen {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: var(--color-background);
+      inset: 0;
+      background:
+        radial-gradient(circle at 50% 42%, #11142a 0%, #050608 60%);
       display: flex;
       justify-content: center;
       align-items: center;
       z-index: 9999;
-      transition: opacity 0.5s ease, visibility 0.5s ease;
+      transition: opacity 1s ease, visibility 1s ease;
+      overflow: hidden;
+    }
+    .splash-screen::after {
+      /* destello azul Klein que respira detrás del logo */
+      content: '';
+      position: absolute;
+      width: 70vmin;
+      height: 70vmin;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(31,60,255,0.25) 0%, rgba(31,60,255,0) 70%);
+      filter: blur(10px);
+      animation: kleinPulse 4s ease-in-out infinite;
     }
     .splash-screen.hidden {
       opacity: 0;
       visibility: hidden;
     }
     .splash-content {
+      position: relative;
+      z-index: 1;
       text-align: center;
-      animation: fadeInUp 1s ease;
+      padding: 0 1.5rem;
     }
-    .splash-logo {
-      font-family: var(--font-heading);
-      font-size: 3rem;
-      color: var(--color-black);
-      margin-bottom: 1rem;
-    }
-    .splash-logo span {
-      color: var(--color-accent);
-    }
-    .splash-loader {
-      width: 40px;
-      height: 40px;
-      border: 3px solid var(--color-border);
-      border-top-color: var(--color-accent);
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
+    .intro-logo {
+      width: min(440px, 78vw);
       margin: 0 auto;
+      opacity: 0;
+      transform: scale(0.92);
+      filter: drop-shadow(0 0 40px rgba(31,60,255,0.25));
+      -webkit-mask-image: radial-gradient(ellipse 62% 58% at 50% 46%, #000 55%, transparent 100%);
+              mask-image: radial-gradient(ellipse 62% 58% at 50% 46%, #000 55%, transparent 100%);
+      animation: introLogoIn 2s cubic-bezier(.2,.7,.2,1) 0.2s forwards;
+    }
+    .intro-motto {
+      font-family: var(--font-ui);
+      font-weight: 300;
+      letter-spacing: 0.5em;
+      text-indent: 0.5em;
+      font-size: clamp(0.8rem, 2.4vw, 1.25rem);
+      color: #cfd6ff;
+      margin-top: 1.6rem;
+      opacity: 0;
+      transform: translateY(12px);
+      animation: introMottoIn 1.6s ease 1.4s forwards;
+    }
+    @keyframes introLogoIn {
+      0%   { opacity: 0; transform: scale(0.92); }
+      55%  { opacity: 1; transform: scale(1); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+    @keyframes introMottoIn {
+      from { opacity: 0; transform: translateY(12px); letter-spacing: 0.2em; }
+      to   { opacity: 0.92; transform: translateY(0); letter-spacing: 0.5em; }
+    }
+    @keyframes kleinPulse {
+      0%, 100% { transform: scale(0.9); opacity: 0.6; }
+      50%      { transform: scale(1.08); opacity: 1; }
     }
     @keyframes spin {
       to { transform: rotate(360deg); }
     }
     @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .intro-logo, .intro-motto { animation-duration: 0.4s; animation-delay: 0s; }
+      .splash-screen::after { animation: none; }
     }
 
     /* ===== HERO ===== */
@@ -265,7 +319,18 @@
       height: 100%;
       object-fit: cover;
       z-index: 0;
-      opacity: 0.2;
+      opacity: 0.32;
+      filter: saturate(0.85) contrast(1.05);
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+      background:
+        radial-gradient(120% 90% at 50% 50%, rgba(5,6,8,0) 30%, rgba(5,6,8,0.7) 100%),
+        linear-gradient(to bottom, rgba(5,6,8,0.55) 0%, rgba(5,6,8,0.15) 35%, rgba(5,6,8,0.85) 100%);
     }
     .hero-content {
       position: relative;
@@ -274,13 +339,22 @@
     }
     .hero-content h1 {
       font-family: 'Libre Caslon Condensed', serif;
-      font-size: clamp(3.2rem, 12vw, 6.5rem);
-      line-height: 0.9;
-      letter-spacing: -0.03em;
+      font-size: clamp(2.6rem, 7.5vw, 5.2rem);
+      line-height: 1.02;
+      letter-spacing: -0.02em;
       margin-bottom: 0.5rem;
     }
     .hero-content h1 span {
       color: var(--color-accent);
+      font-style: italic;
+    }
+    .hero-motto {
+      font-family: var(--font-ui);
+      font-weight: 400;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-size: clamp(0.62rem, 1.5vw, 0.8rem);
+      color: var(--klein-glow);
     }
     .hero-sub {
       font-size: clamp(1.2rem, 3vw, 2rem);
@@ -1065,11 +1139,14 @@
 </head>
 <body>
 
+<!-- ===== ATMÓSFERA REACTIVA ===== -->
+<div class="atmosphere" id="atmosphere"></div>
+
 <!-- ===== SPLASH SCREEN ===== -->
 <div class="splash-screen" id="splashScreen">
   <div class="splash-content">
-    <div class="splash-logo">SHA<span>DEX</span></div>
-    <div class="splash-loader"></div>
+    <img class="intro-logo" src="shadexLOGO.jpg" alt="SHADEX" width="440" height="300">
+    <div class="intro-motto">QUOD TANGO MUTO</div>
   </div>
 </div>
 
@@ -1080,14 +1157,14 @@
     <span></span><span></span><span></span>
   </button>
   <ul class="nav-links">
-    <li><a href="#garantia" data-es="Garantía" data-en="Warranty">Garantía</a></li>
-    <li><a href="#automotriz" data-es="Automotriz" data-en="Automotive">Automotriz</a></li>
-    <li><a href="#smartfilm" data-es="SmartFilm" data-en="SmartFilm">SmartFilm</a></li>
-    <li><a href="#arquitectonicas" data-es="Arquitectónicas" data-en="Architectural">Arquitectónicas</a></li>
-    <li><a href="#safety" data-es="Safety" data-en="Safety">Safety</a></li>
-    <li><a href="#alta-especialidad" data-es="Alta Especialidad" data-en="Premium">Alta Especialidad</a></li>
-    <li><a href="#resenas" data-es="Reseñas" data-en="Reviews">Reseñas</a></li>
-    <li><a href="#contacto" class="nav-cta" data-es="Contacto" data-en="Contact">Contacto</a></li>
+    <li><a href="#garantia" data-atmo="rgba(31,60,255,0.20)" data-es="Garantía" data-en="Warranty">Garantía</a></li>
+    <li><a href="#automotriz" data-atmo="rgba(140,150,170,0.18)" data-es="Automotriz" data-en="Automotive">Automotriz</a></li>
+    <li><a href="#smartfilm" data-atmo="rgba(0,180,255,0.18)" data-es="SmartFilm" data-en="SmartFilm">SmartFilm</a></li>
+    <li><a href="#arquitectonicas" data-atmo="rgba(80,120,255,0.20)" data-es="Arquitectónicas" data-en="Architectural">Arquitectónicas</a></li>
+    <li><a href="#safety" data-atmo="rgba(0,210,180,0.16)" data-es="Safety" data-en="Safety">Safety</a></li>
+    <li><a href="#alta-especialidad" data-atmo="rgba(150,90,255,0.18)" data-es="Alta Especialidad" data-en="Premium">Alta Especialidad</a></li>
+    <li><a href="#resenas" data-atmo="rgba(255,170,60,0.14)" data-es="Reseñas" data-en="Reviews">Reseñas</a></li>
+    <li><a href="#contacto" class="nav-cta" data-atmo="rgba(31,60,255,0.22)" data-es="Contacto" data-en="Contact">Contacto</a></li>
     <li><button class="lang-toggle" onclick="toggleLanguage()">ES</button></li>
   </ul>
 </header>
@@ -1114,11 +1191,10 @@
   </div>
 
   <div class="hero-content">
-    <div class="section-label" style="margin-bottom:1rem;" data-es="Conoce" data-en="Discover">Conoce</div>
-    <h1>SHA<span>DEX</span></h1>
-    <div class="hero-sub" data-es="Privacidad redefinida" data-en="Privacy redefined">Privacidad redefinida</div>
-    <p class="hero-desc" data-es="Cambiar la forma en que ves el mundo empieza por transformar tus vistas. La diferencia está en lo que eliges ver." data-en="Changing the way you see the world starts by transforming your views. The difference is in what you choose to see.">Cambiar la forma en que ves el mundo empieza por transformar tus vistas. La diferencia está en lo que eliges ver.</p>
-    <a href="#contacto" class="hero-cta" data-es="Cotiza tu espacio" data-en="Get a quote">Cotiza tu espacio</a>
+    <div class="section-label hero-motto" style="margin-bottom:1.4rem;" data-es="Quod Tango Muto · Todo lo que tocamos, lo transformamos" data-en="Quod Tango Muto · Everything we touch, we transform">Quod Tango Muto · Todo lo que tocamos, lo transformamos</div>
+    <h1 data-es="Transformamos vidrio en <span>tecnología</span>." data-en="We turn glass into <span>technology</span>.">Transformamos vidrio en <span>tecnología</span>.</h1>
+    <p class="hero-desc" data-es="Películas arquitectónicas, automotrices y SmartFilm de alto rendimiento para privacidad, confort térmico, seguridad y control solar." data-en="High-performance architectural, automotive and SmartFilm solutions for privacy, thermal comfort, security and solar control.">Películas arquitectónicas, automotrices y SmartFilm de alto rendimiento para privacidad, confort térmico, seguridad y control solar.</p>
+    <a href="#contacto" class="hero-cta" data-es="Inicia una transformación" data-en="Start a transformation">Inicia una transformación</a>
   </div>
   <a href="#estadisticas" class="scroll-to-explore">
     <span data-es="Explorar" data-en="Explore">Explorar</span>
@@ -1575,7 +1651,7 @@
       document.querySelectorAll('[data-es]').forEach(el => {
         const text = el.getAttribute(`data-${currentLang}`);
         if (text) {
-          el.textContent = text;
+          el.innerHTML = text;
         }
       });
       
@@ -1602,40 +1678,25 @@
 <!-- ===== RANDOM VIDEO SELECTION ===== -->
 <script>
   (function() {
-    // Array de videos disponibles en ShadeX-all-assets
+    // Videos reales del cliente (uso aleatorio por ahora)
+    const VIDEO_DIR = 'shadex videos reales/';
     const videos = [
-      'ShadeX (1).mp4',
-      'ShadeX (2).mp4',
-      'ShadeX (3).mp4',
-      'ShadeX (4).mp4',
-      'ShadeX (5).mp4',
-      'ShadeX (6).mp4',
-      'ShadeX (7).mp4',
-      'ShadeX (8).mp4',
-      'ShadeX (9).mp4',
-      'ShadeX (10).mp4',
-      'ShadeX (11).mp4',
-      'ShadeX (12).mp4',
-      'ShadeX (13).mp4',
-      'ShadeX (14).mp4',
-      'ShadeX (15).mp4',
-      'ShadeX (16).mp4',
-      'ShadeX (17).mp4',
-      'ShadeX (18).mp4',
-      'ShadeX (19).mp4',
-      'ShadeX (20).mp4',
-      'ShadeX (21).mp4',
-      'ShadeX (22).mp4',
-      'ShadeX (23).mp4',
-      'ShadeX (24).mp4',
-      'ShadeX (25).mp4',
-      'ShadeX (26).mp4',
-      'ShadeX (27).mp4',
-      'ShadeX (28).mp4',
-      'ShadeX (29).mp4',
-      'ShadeX (30).mp4',
-      'ShadeX (31).mp4',
-      'ShadeX (32).mp4'
+      'VID-20260522-WA0022.mp4',
+      'VID-20260522-WA0023.mp4',
+      'VID-20260522-WA0024.mp4',
+      'VID-20260529-WA0080.mp4',
+      'VID-20260529-WA0087.mp4',
+      'VID-20260529-WA0088.mp4',
+      'VID-20260529-WA0089.mp4',
+      'VID-20260529-WA0090.mp4',
+      'VID-20260529-WA0091.mp4',
+      'VID-20260529-WA0092.mp4',
+      'VID-20260529-WA0093.mp4',
+      'VID-20260529-WA0094.mp4',
+      'VID-20260529-WA0095.mp4',
+      'VID-20260529-WA0096.mp4',
+      'VID-20260529-WA0097.mp4',
+      'VID-20260604-WA0021.mp4'
     ];
 
     // Función para obtener videos aleatorios únicos
@@ -1648,7 +1709,7 @@
     const heroVideo = document.getElementById('heroVideo');
     if (heroVideo) {
       const randomVideo = getRandomVideos(1)[0];
-      heroVideo.src = `ShadeX-all-assets/${randomVideo}`;
+      heroVideo.src = VIDEO_DIR + randomVideo;
     }
 
     // Portfolio: cargar cada video sólo cuando entra en pantalla (lazy)
@@ -1670,7 +1731,7 @@
     for (let i = 1; i <= 4; i++) {
       const portfolioVideo = document.getElementById(`portfolioVideo${i}`);
       if (portfolioVideo) {
-        portfolioVideo.dataset.src = `ShadeX-all-assets/${portfolioVideos[i - 1]}`;
+        portfolioVideo.dataset.src = VIDEO_DIR + portfolioVideos[i - 1];
         lazyVideoObserver.observe(portfolioVideo);
       }
     }
@@ -1680,12 +1741,48 @@
 <!-- ===== SCROLL ANIMATIONS (improved like AOS) ===== -->
 <script>
   (function() {
-    // Splash screen functionality
+    // Intro cinematográfica: logo SX → QUOD TANGO MUTO → revela el sitio
+    const splash = document.getElementById('splashScreen');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const hideSplash = () => splash && splash.classList.add('hidden');
     window.addEventListener('load', function() {
-      setTimeout(function() {
-        document.getElementById('splashScreen').classList.add('hidden');
-      }, 1500);
+      setTimeout(hideSplash, reduceMotion ? 600 : 3200);
     });
+    // Permitir saltar la intro con clic/tecla
+    if (splash) {
+      splash.addEventListener('click', hideSplash);
+      window.addEventListener('keydown', hideSplash, { once: true });
+    }
+
+    // Header compacto al hacer scroll
+    const headerEl = document.querySelector('header');
+    if (headerEl) {
+      const onHeaderScroll = () => headerEl.classList.toggle('scrolled', window.scrollY > 40);
+      window.addEventListener('scroll', onHeaderScroll, { passive: true });
+      onHeaderScroll();
+    }
+
+    // Menú cinematográfico: la atmósfera del fondo reacciona al pasar el cursor
+    const atmosphere = document.getElementById('atmosphere');
+    if (atmosphere && !reduceMotion) {
+      const baseColor = 'rgba(31,60,255,0.16)';
+      document.querySelectorAll('.nav-links a[data-atmo]').forEach((link, i, all) => {
+        link.addEventListener('mouseenter', () => {
+          const x = 18 + (i / Math.max(all.length - 1, 1)) * 64;
+          atmosphere.style.setProperty('--atmo-color', link.getAttribute('data-atmo'));
+          atmosphere.style.setProperty('--atmo-x', x + '%');
+          atmosphere.style.setProperty('--atmo-y', '10%');
+        });
+      });
+      const navList = document.querySelector('.nav-links');
+      if (navList) {
+        navList.addEventListener('mouseleave', () => {
+          atmosphere.style.setProperty('--atmo-color', baseColor);
+          atmosphere.style.setProperty('--atmo-x', '50%');
+          atmosphere.style.setProperty('--atmo-y', '12%');
+        });
+      }
+    }
 
     // Improved scroll animations with better timing and staggering
     const elements = document.querySelectorAll('.service-card, .portfolio-item, .testimonial-card, .contact-grid > div, .stat-item, .spec-card, .process-step');
