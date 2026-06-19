@@ -1312,6 +1312,22 @@
     .lab-state { text-align: center; font-family: var(--font-ui); font-size: 0.85rem; opacity: 0.7; margin-top: 0.7rem; }
     .ba-range { width: 100%; margin-top: 0.6rem; accent-color: var(--klein); }
 
+    /* LED Film */
+    .led-overlay {
+      position: absolute; inset: 0; display: grid; place-items: center; opacity: 0;
+      transition: opacity 0.5s ease;
+      background:
+        radial-gradient(rgba(79,107,255,0.20) 1px, transparent 1.7px) 0 0 / 10px 10px,
+        linear-gradient(rgba(5,7,16,0.45), rgba(5,7,16,0.6));
+    }
+    .lab-stage.led-on .led-overlay { opacity: 1; }
+    .led-overlay span {
+      font-family: var(--font-ui); font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase;
+      font-size: 0.95rem; color: #bcd0ff; text-align: center; padding: 0 1rem;
+      text-shadow: 0 0 8px var(--klein-glow), 0 0 20px var(--klein);
+      animation: ledpulse 1.6s ease-in-out infinite;
+    }
+    @keyframes ledpulse { 0%,100% { opacity: 0.5; } 50% { opacity: 1; } }
     /* Explorador de texturas */
     .tex-stage { aspect-ratio: 16/9; }
     .tex-preview { position: absolute; inset: 0; transition: background 0.5s ease, filter 0.5s ease; }
@@ -1491,6 +1507,17 @@
     <p class="lead" style="margin-top:2rem;" data-es="No nos limitamos a intervenir cristal, superficies o fachadas. Diseñamos experiencias visuales capaces de despertar sensaciones, elevar percepciones y redefinir la relación entre las personas y los espacios que habitan." data-en="We don't simply intervene glass, surfaces or facades. We design visual experiences that awaken sensations, elevate perception and redefine the relationship between people and the spaces they inhabit.">No nos limitamos a intervenir cristal, superficies o fachadas. Diseñamos experiencias visuales capaces de despertar sensaciones, elevar percepciones y redefinir la relación entre las personas y los espacios que habitan.</p>
     <p class="sec-text muted" style="margin-left:auto;margin-right:auto;" data-es="Porque el verdadero lujo no consiste en poseer algo extraordinario. Consiste en sentirlo." data-en="Because true luxury is not about owning something extraordinary. It is about feeling it.">Porque el verdadero lujo no consiste en poseer algo extraordinario. Consiste en sentirlo.</p>
     <div class="divider-quod" data-es="Todo lo que tocamos, lo transformamos" data-en="Everything we touch, we transform">Todo lo que tocamos, lo transformamos</div>
+  </div>
+</section>
+
+<!-- ===== ORIGEN ===== -->
+<section class="pad" id="origen">
+  <div class="container narrow center">
+    <div class="eyebrow" data-es="Origen" data-en="Origin">Origen</div>
+    <h2 class="sec-title" data-es="SHADEX nace de una <span class='accent'>observación sencilla</span>." data-en="SHADEX is born from a <span class='accent'>simple observation</span>.">SHADEX nace de una <span class="accent">observación sencilla</span>.</h2>
+    <p class="lead" style="margin-top:2rem;" data-es="La mayoría de las tecnologías arquitectónicas se presentan como productos. Nosotros creemos que deberían presentarse como experiencias." data-en="Most architectural technologies are presented as products. We believe they should be presented as experiences.">La mayoría de las tecnologías arquitectónicas se presentan como productos. Nosotros creemos que deberían presentarse como experiencias.</p>
+    <p data-es="Durante años observamos cómo la arquitectura evolucionaba, cómo los materiales se volvían más sofisticados y cómo la tecnología avanzaba a una velocidad extraordinaria. Sin embargo, pocas soluciones parecían responder a una pregunta fundamental: ¿cómo puede un espacio hacernos sentir mejor?" data-en="For years we watched architecture evolve, materials grow more sophisticated and technology advance at an extraordinary pace. Yet few solutions seemed to answer a fundamental question: how can a space make us feel better?">Durante años observamos cómo la arquitectura evolucionaba, cómo los materiales se volvían más sofisticados y cómo la tecnología avanzaba a una velocidad extraordinaria. Sin embargo, pocas soluciones parecían responder a una pregunta fundamental: ¿cómo puede un espacio hacernos sentir mejor?</p>
+    <p data-es="SHADEX nace para responder esa pregunta: como una casa de tecnología arquitectónica dedicada a seleccionar, integrar y transformar espacios mediante soluciones capaces de generar algo más valioso que una mejora funcional. Una experiencia memorable." data-en="SHADEX is born to answer that question: as an architectural technology house dedicated to selecting, integrating and transforming spaces through solutions capable of creating something more valuable than a functional improvement. A memorable experience.">SHADEX nace para responder esa pregunta: como una casa de tecnología arquitectónica dedicada a seleccionar, integrar y transformar espacios mediante soluciones capaces de generar algo más valioso que una mejora funcional. Una experiencia memorable.</p>
   </div>
 </section>
 
@@ -1716,6 +1743,19 @@
         </div>
       </div>
 
+      <!-- LED Film Transparente -->
+      <div class="lab-card">
+        <div class="lab-head"><span class="tag" data-es="Demo en vivo" data-en="Live demo">Demo en vivo</span><h3 data-es="LED Film Transparente" data-en="Transparent LED Film">LED Film Transparente</h3></div>
+        <div class="lab-stage" id="ledStage">
+          <video id="labVideoLED" muted loop playsinline preload="none" poster="poster.jpg"></video>
+          <div class="led-overlay"><span data-es="SHADEX · Comunicación Visual" data-en="SHADEX · Visual Communication">SHADEX · Comunicación Visual</span></div>
+        </div>
+        <div class="lab-controls">
+          <button class="lab-toggle" type="button" data-target="ledStage" data-mode="led" data-es="Encender LED" data-en="Turn on LED">Encender LED</button>
+          <div class="lab-state" id="ledState" data-es="Cristal transparente · sin contenido" data-en="Transparent glass · no content">Cristal transparente · sin contenido</div>
+        </div>
+      </div>
+
       <!-- Antes / Después -->
       <div class="lab-card">
         <div class="lab-head"><span class="tag" data-es="Comparativa" data-en="Comparison">Comparativa</span><h3 data-es="Antes y Después" data-en="Before & After">Antes y Después</h3></div>
@@ -1854,6 +1894,16 @@
   </div>
 </section>
 
+<!-- ===== EL FUTURO SEGÚN SHADEX ===== -->
+<section class="pad azul-section" id="futuro">
+  <div class="container narrow center">
+    <div class="eyebrow" data-es="El Futuro según SHADEX" data-en="The Future according to SHADEX">El Futuro según SHADEX</div>
+    <h2 class="sec-title" data-es="Los edificios dejarán de ser <span class='accent-text'>estructuras estáticas</span>." data-en="Buildings will stop being <span class='accent-text'>static structures</span>.">Los edificios dejarán de ser <span class="accent-text">estructuras estáticas</span>.</h2>
+    <p class="lead" style="margin-top:2rem;" data-es="Las superficies dejarán de ser superficies. El cristal dejará de ser únicamente cristal. La arquitectura se volverá dinámica, interactiva, inteligente: capaz de responder a las necesidades de quienes la habitan." data-en="Surfaces will stop being surfaces. Glass will stop being merely glass. Architecture will become dynamic, interactive, intelligent: able to respond to the needs of those who inhabit it.">Las superficies dejarán de ser superficies. El cristal dejará de ser únicamente cristal. La arquitectura se volverá dinámica, interactiva, inteligente: capaz de responder a las necesidades de quienes la habitan.</p>
+    <p data-es="En ese futuro, privacidad, comunicación visual, eficiencia energética, protección y diseño coexistirán de forma natural. SHADEX existe para acelerar la llegada de ese futuro." data-en="In that future, privacy, visual communication, energy efficiency, protection and design will coexist naturally. SHADEX exists to accelerate the arrival of that future.">En ese futuro, privacidad, comunicación visual, eficiencia energética, protección y diseño coexistirán de forma natural. SHADEX existe para acelerar la llegada de ese futuro.</p>
+  </div>
+</section>
+
 <!-- ===== INICIAR UNA TRANSFORMACIÓN (CONTACTO) ===== -->
 <section class="pad contact" id="contacto">
   <div class="container">
@@ -1882,6 +1932,23 @@
         <p class="form-note" data-es="Al enviar se abrirá WhatsApp con tu mensaje listo para enviarlo a nuestro equipo." data-en="On submit, WhatsApp opens with your message ready to send to our team.">Al enviar se abrirá WhatsApp con tu mensaje listo para enviarlo a nuestro equipo.</p>
         <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
       </form>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CÓDIGO SHADEX ===== -->
+<section class="pad" id="codigo">
+  <div class="container">
+    <div class="center narrow">
+      <div class="eyebrow" data-es="Código SHADEX" data-en="SHADEX Code">Código SHADEX</div>
+      <h2 class="sec-title" data-es="Los principios que guían <span class='accent'>cada decisión</span>" data-en="The principles that guide <span class='accent'>every decision</span>">Los principios que guían <span class="accent">cada decisión</span></h2>
+    </div>
+    <div class="pillars">
+      <div class="pillar"><h3 data-es="Tecnología con propósito" data-en="Technology with purpose">Tecnología con propósito</h3><p data-es="Toda tecnología debe mejorar una experiencia." data-en="All technology must improve an experience.">Toda tecnología debe mejorar una experiencia.</p></div>
+      <div class="pillar"><h3 data-es="Arquitectura primero" data-en="Architecture first">Arquitectura primero</h3><p data-es="La tecnología debe integrarse al espacio, nunca competir con él." data-en="Technology must integrate into the space, never compete with it.">La tecnología debe integrarse al espacio, nunca competir con él.</p></div>
+      <div class="pillar"><h3 data-es="Curatoría antes que cantidad" data-en="Curation over quantity">Curatoría antes que cantidad</h3><p data-es="Preferimos una solución extraordinaria a cien soluciones promedio." data-en="We prefer one extraordinary solution over a hundred average ones.">Preferimos una solución extraordinaria a cien soluciones promedio.</p></div>
+      <div class="pillar"><h3 data-es="Precisión sobre espectáculo" data-en="Precision over spectacle">Precisión sobre espectáculo</h3><p data-es="El verdadero impacto no necesita gritar." data-en="True impact does not need to shout.">El verdadero impacto no necesita gritar.</p></div>
+      <div class="pillar"><h3 data-es="Emoción como objetivo final" data-en="Emotion as the final goal">Emoción como objetivo final</h3><p data-es="La función es importante. La experiencia es inolvidable." data-en="Function matters. The experience is unforgettable.">La función es importante. La experiencia es inolvidable.</p></div>
     </div>
   </div>
 </section>
@@ -2003,8 +2070,8 @@
     }
 
     // Escenas de los demos interactivos (videos reales, carga al verse)
-    const labScenes = getRandomVideos(2);
-    [['labVideoSF', labScenes[0]], ['labVideoSolar', labScenes[1]]].forEach(([id, file]) => {
+    const labScenes = getRandomVideos(3);
+    [['labVideoSF', labScenes[0]], ['labVideoSolar', labScenes[1]], ['labVideoLED', labScenes[2]]].forEach(([id, file]) => {
       const v = document.getElementById(id);
       if (v) { v.dataset.src = VIDEO_DIR + file; lazyVideoObserver.observe(v); }
     });
@@ -2032,6 +2099,15 @@
           if (st) {
             st.setAttribute('data-es', on ? 'Estado: transparente' : 'Estado: privacidad activada');
             st.setAttribute('data-en', on ? 'State: transparent' : 'State: privacy on');
+          }
+        } else if (btn.dataset.mode === 'led') {
+          const on = stage.classList.toggle('led-on');
+          const st = document.getElementById('ledState');
+          btn.setAttribute('data-es', on ? 'Apagar LED' : 'Encender LED');
+          btn.setAttribute('data-en', on ? 'Turn off LED' : 'Turn on LED');
+          if (st) {
+            st.setAttribute('data-es', on ? 'LED Film activo · comunicación visual' : 'Cristal transparente · sin contenido');
+            st.setAttribute('data-en', on ? 'LED Film active · visual communication' : 'Transparent glass · no content');
           }
         } else if (btn.dataset.mode === 'solar') {
           const off = stage.classList.toggle('solar-off');
